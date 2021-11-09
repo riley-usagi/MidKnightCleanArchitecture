@@ -4,6 +4,7 @@ import SwiftUI
 struct SettingsScreen: View {
   
   @State private var payDay = Defaults[\.payDay]
+  @State private var totalCash = Defaults[\.totalCash]
   
   let dateFormatter = DateFormatter()
   
@@ -12,6 +13,14 @@ struct SettingsScreen: View {
   var body: some View {
     
     VStack(spacing: 0) {
+      
+      Text("\(totalCash) до зарплаты")
+        .font(.largeTitle)
+        .padding(.bottom)
+      
+      Text("\(totalCash / Date.daysBetween(Date(), payDay)) в день")
+        .font(.callout)
+        .padding(.bottom)
       
       Menu("\(dateFormatter.string(from: payDay))") {
         
