@@ -18,7 +18,7 @@ struct SettingsScreen: View {
         .font(.largeTitle)
         .padding(.bottom)
       
-      Text("\(totalCash / Date.daysBetween(Date(), payDay)) в день")
+      Text("\(totalCash / Date.daysBetweenPlusOne(Date(), payDay)) в день")
         .font(.callout)
         .padding(.bottom)
       
