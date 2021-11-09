@@ -21,7 +21,7 @@ struct ContentView: View {
       case .settings:
         SettingsScreen()
       case .targets:
-        Text("")
+        TargetsScreen()
       case .createTarget:
         Text("")
       }

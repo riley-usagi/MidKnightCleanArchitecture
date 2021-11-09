@@ -8,8 +8,10 @@ extension AppEnvironment {
     
     let appState    = Store<AppState>(AppState())
     
-    let interactors = configuredInteractors(appState)
-    
+    let dbServices  = configuredDBServices()
+
+    let interactors = configuredInteractors(appState, dbServices)
+        
     let container   = Container(appState, interactors)
     
     return AppEnvironment(container: container)
