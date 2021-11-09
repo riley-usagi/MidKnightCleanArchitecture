@@ -19,7 +19,7 @@ struct ContentView: View {
       case .history:
         Text("")
       case .settings:
-        Text("")
+        SettingsScreen()
       case .targets:
         Text("")
       case .createTarget:

@@ -40,7 +40,7 @@ struct LoadingScreen: View {
           UserDefaults.standard.set(true, forKey: "HasLaunchedOnce")
         }
         
-        container.appState.value.currentPage = .today
+        container.appState.value.currentPage = .settings
       }
   }
   
