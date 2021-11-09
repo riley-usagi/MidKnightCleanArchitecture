@@ -43,6 +43,8 @@
 		BF6FE35027398DE100891498 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6FE34F27398DE100891498 /* ContentView.swift */; };
 		BF6FE35227398DE300891498 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF6FE35127398DE300891498 /* Assets.xcassets */; };
 		BF6FE35527398DE300891498 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF6FE35427398DE300891498 /* Preview Assets.xcassets */; };
+		BFFB849C273A60D500FA4E5E /* SwiftyUserDefaults in Frameworks */ = {isa = PBXBuildFile; productRef = BFFB849B273A60D500FA4E5E /* SwiftyUserDefaults */; };
+		BFFB849E273A615000FA4E5E /* DefaultsKeysExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFB849D273A615000FA4E5E /* DefaultsKeysExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +86,7 @@
 		BF6FE34F27398DE100891498 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		BF6FE35127398DE300891498 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BF6FE35427398DE300891498 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		BFFB849D273A615000FA4E5E /* DefaultsKeysExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultsKeysExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFFB849C273A60D500FA4E5E /* SwiftyUserDefaults in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -185,6 +189,7 @@
 				BF3DCFD9273994CF0044FB1F /* ResultExtension.swift */,
 				BF3DCFD5273994CF0044FB1F /* SubscribersCompletionExtension.swift */,
 				BF3DCFCE273994CE0044FB1F /* ViewExtension.swift */,
+				BFFB849D273A615000FA4E5E /* DefaultsKeysExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -302,6 +307,9 @@
 			dependencies = (
 			);
 			name = MidKnight;
+			packageProductDependencies = (
+				BFFB849B273A60D500FA4E5E /* SwiftyUserDefaults */,
+			);
 			productName = MidKnight;
 			productReference = BF6FE34A27398DE100891498 /* MidKnight.app */;
 			productType = "com.apple.product-type.application";
@@ -330,6 +338,9 @@
 				Base,
 			);
 			mainGroup = BF6FE34127398DE100891498;
+			packageReferences = (
+				BFFB849A273A60D500FA4E5E /* XCRemoteSwiftPackageReference "SwiftyUserDefaults" */,
+			);
 			productRefGroup = BF6FE34B27398DE100891498 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -401,6 +412,7 @@
 				BF6FE34E27398DE100891498 /* MidKnightApp.swift in Sources */,
 				BF3DCFE2273994CF0044FB1F /* PublisherExtension.swift in Sources */,
 				BF3DCFF9273999190044FB1F /* LoadingScreen.swift in Sources */,
+				BFFB849E273A615000FA4E5E /* DefaultsKeysExtension.swift in Sources */,
 				BF3DCFCC273994A30044FB1F /* APIError.swift in Sources */,
 				BF3DCFE9273994CF0044FB1F /* OptionalExtension.swift in Sources */,
 				BF3DCFC2273994430044FB1F /* Store.swift in Sources */,
@@ -617,6 +629,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		BFFB849A273A60D500FA4E5E /* XCRemoteSwiftPackageReference "SwiftyUserDefaults" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sunshinejr/SwiftyUserDefaults.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		BFFB849B273A60D500FA4E5E /* SwiftyUserDefaults */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BFFB849A273A60D500FA4E5E /* XCRemoteSwiftPackageReference "SwiftyUserDefaults" */;
+			productName = SwiftyUserDefaults;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BF6FE34227398DE100891498 /* Project object */;
 }
