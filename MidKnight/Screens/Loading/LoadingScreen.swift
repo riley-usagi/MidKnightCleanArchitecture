@@ -1,3 +1,4 @@
+import SwiftyUserDefaults
 import SwiftUI
 
 struct LoadingScreen: View {
@@ -49,6 +50,6 @@ struct LoadingScreen: View {
     let domain = Bundle.main.bundleIdentifier!
     UserDefaults.standard.removePersistentDomain(forName: domain)
     UserDefaults.standard.synchronize()
-    print(Array(UserDefaults.standard.dictionaryRepresentation().keys).count)
+    // print(Array(UserDefaults.standard.dictionaryRepresentation().keys).count)
   }
 }
