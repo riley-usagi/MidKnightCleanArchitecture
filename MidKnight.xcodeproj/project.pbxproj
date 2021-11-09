@@ -181,6 +181,8 @@
 			isa = PBXGroup;
 			children = (
 				BF3DCFD6273994CF0044FB1F /* AnyCancellableExtension.swift */,
+				BFFB849F273A657000FA4E5E /* DateExtension.swift */,
+				BFFB849D273A615000FA4E5E /* DefaultsKeysExtension.swift */,
 				BF3DCFD4273994CF0044FB1F /* ErrorExtension.swift */,
 				BF3DCFCF273994CE0044FB1F /* HTTPCodesExtension.swift */,
 				BF3DCFDB273994CF0044FB1F /* JsonEncoderExtension.swift */,
@@ -194,8 +196,6 @@
 				BF3DCFD9273994CF0044FB1F /* ResultExtension.swift */,
 				BF3DCFD5273994CF0044FB1F /* SubscribersCompletionExtension.swift */,
 				BF3DCFCE273994CE0044FB1F /* ViewExtension.swift */,
-				BFFB849D273A615000FA4E5E /* DefaultsKeysExtension.swift */,
-				BFFB849F273A657000FA4E5E /* DateExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
