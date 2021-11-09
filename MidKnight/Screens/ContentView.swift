@@ -5,7 +5,7 @@ struct ContentView: View {
   
   private let container: Container
   
-  @State var currentPage: Container.Routes = .loading
+  @State private var currentPage: Container.Routes = .loading
   
   var body: some View {
     
