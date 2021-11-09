@@ -28,17 +28,23 @@ enum CalcButton: String {
   }
 }
 
+enum Operation {
+  case none
+}
+
 struct TodayScreen: View {
   
   @Environment(\.container) var container: Container
   
   @State private var todayCash = Defaults[\.todayCash]
   
+  @State var value = "0"
+  
   let buttons: [[CalcButton]] = [
-    [.seven, .eight, .nine, .clear],
-    [.four, .five, .six],
-    [.one, .two, .three],
-    [.zero, .dot, .enter]
+    [.six, .seven, .eight, .nine],
+    [.two, .three, .four, .five],
+    [.dot, .zero, .one],
+    [.clear, .enter]
   ]
   
   var body: some View {
@@ -78,9 +84,9 @@ struct TodayScreen: View {
         
         VStack {
           HStack {
-            Text("0")
+            Text(value)
               .bold()
-              .font(.system(size: 52))
+              .font(.system(size: 72))
               .foregroundColor(.black)
             
             Spacer()
@@ -94,7 +100,7 @@ struct TodayScreen: View {
             HStack(spacing: 12) {
               ForEach(row, id: \.self) { item in
                 Button {
-                  
+                  self.didTap(button: item)
                 } label: {
                   Text(item.rawValue)
                     .font(.system(size: 32))
@@ -116,7 +122,31 @@ struct TodayScreen: View {
     }
   }
   
+  func didTap(button: CalcButton) {
+    switch button {
+    case .clear:
+      self.value = "0"
+    default:
+      let number = button.rawValue
+      if self.value == "0" {
+        value = number
+      }
+      else {
+        self.value = "\(self.value)\(number)"
+      }
+    }
+  }
+  
   func buttonWidth(item: CalcButton) -> CGFloat {
+    if item == .enter {
+      return ((UIScreen.main.bounds.width - (4*12)) / 4) * 2
+    }
+    if item == .zero {
+      return ((UIScreen.main.bounds.width - (4*12)) / 4) * 2
+    }
+    if item == .clear {
+      return ((UIScreen.main.bounds.width - (4*12)) / 4) * 2
+    }
     return (UIScreen.main.bounds.width - (5*12)) / 4
   }
   
