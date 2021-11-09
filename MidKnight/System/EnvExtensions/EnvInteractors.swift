@@ -1,9 +1,14 @@
 extension AppEnvironment {
   
   static func configuredInteractors(
-    _ appState: Store<AppState>
+    _ appState: Store<AppState>,
+    _ dbServices: Container.DBServices
   ) -> Container.Interactors {
     
-    return .init()
+    let targetsInteractor = RealTargetsInteractor(
+      appState, dbServices.targetsDBService
+    )
+    
+    return .init(targetsInteractor)
   }
 }

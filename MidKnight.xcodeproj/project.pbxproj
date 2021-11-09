@@ -47,6 +47,15 @@
 		BFFB849E273A615000FA4E5E /* DefaultsKeysExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFB849D273A615000FA4E5E /* DefaultsKeysExtension.swift */; };
 		BFFB84A0273A657000FA4E5E /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFB849F273A657000FA4E5E /* DateExtension.swift */; };
 		BFFB84A3273A65D000FA4E5E /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFB84A2273A65D000FA4E5E /* SettingsScreen.swift */; };
+		BFFB84AF273AB15B00FA4E5E /* TargetsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFB84AE273AB15B00FA4E5E /* TargetsScreen.swift */; };
+		BFFB84B1273AB1A900FA4E5E /* Target.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFB84B0273AB1A900FA4E5E /* Target.swift */; };
+		BFFB84B3273AB40300FA4E5E /* TargetsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFB84B2273AB40300FA4E5E /* TargetsInteractor.swift */; };
+		BFFB84B6273AB5B100FA4E5E /* MidKnightDataBase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BFFB84B4273AB5B100FA4E5E /* MidKnightDataBase.xcdatamodeld */; };
+		BFFB84BA273AB63800FA4E5E /* TargetModelObject+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFB84B8273AB63700FA4E5E /* TargetModelObject+CoreDataClass.swift */; };
+		BFFB84BB273AB63800FA4E5E /* TargetModelObject+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFB84B9273AB63700FA4E5E /* TargetModelObject+CoreDataProperties.swift */; };
+		BFFB84BD273AB89B00FA4E5E /* TargetsDBService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFB84BC273AB89B00FA4E5E /* TargetsDBService.swift */; };
+		BFFB84BF273ABA5900FA4E5E /* EnvDBServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFB84BE273ABA5900FA4E5E /* EnvDBServices.swift */; };
+		BFFB84C1273ABA7200FA4E5E /* DBServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFB84C0273ABA7200FA4E5E /* DBServices.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -91,6 +100,15 @@
 		BFFB849D273A615000FA4E5E /* DefaultsKeysExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultsKeysExtension.swift; sourceTree = "<group>"; };
 		BFFB849F273A657000FA4E5E /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		BFFB84A2273A65D000FA4E5E /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
+		BFFB84AE273AB15B00FA4E5E /* TargetsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetsScreen.swift; sourceTree = "<group>"; };
+		BFFB84B0273AB1A900FA4E5E /* Target.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Target.swift; sourceTree = "<group>"; };
+		BFFB84B2273AB40300FA4E5E /* TargetsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetsInteractor.swift; sourceTree = "<group>"; };
+		BFFB84B5273AB5B100FA4E5E /* MidKnightDataBase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MidKnightDataBase.xcdatamodel; sourceTree = "<group>"; };
+		BFFB84B8273AB63700FA4E5E /* TargetModelObject+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TargetModelObject+CoreDataClass.swift"; sourceTree = "<group>"; };
+		BFFB84B9273AB63700FA4E5E /* TargetModelObject+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TargetModelObject+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		BFFB84BC273AB89B00FA4E5E /* TargetsDBService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetsDBService.swift; sourceTree = "<group>"; };
+		BFFB84BE273ABA5900FA4E5E /* EnvDBServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvDBServices.swift; sourceTree = "<group>"; };
+		BFFB84C0273ABA7200FA4E5E /* DBServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBServices.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +145,7 @@
 		BF3DCFAB273990000044FB1F /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				BFFB84AD273AB14500FA4E5E /* Targets */,
 				BFFB84A1273A65C500FA4E5E /* Settings */,
 				BF6FE34F27398DE100891498 /* ContentView.swift */,
 				BF3DCFF72739990B0044FB1F /* Loading */,
@@ -142,6 +161,7 @@
 				BF3DCFB62739941C0044FB1F /* Container.swift */,
 				BF3DCFB2273993D60044FB1F /* Interactors.swift */,
 				BF3DCFF5273998360044FB1F /* Routes.swift */,
+				BFFB84C0273ABA7200FA4E5E /* DBServices.swift */,
 			);
 			path = Injected;
 			sourceTree = "<group>";
@@ -204,6 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				BF3DCFED273996060044FB1F /* EnvInteractors.swift */,
+				BFFB84BE273ABA5900FA4E5E /* EnvDBServices.swift */,
 			);
 			path = EnvExtensions;
 			sourceTree = "<group>";
@@ -211,6 +232,8 @@
 		BF3DCFEF273997870044FB1F /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				BFFB84B7273AB62400FA4E5E /* CoreData */,
+				BFFB84B0273AB1A900FA4E5E /* Target.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -219,6 +242,7 @@
 			isa = PBXGroup;
 			children = (
 				BF3DCFF1273997AA0044FB1F /* CoreDataStack.swift */,
+				BFFB84B4273AB5B100FA4E5E /* MidKnightDataBase.xcdatamodeld */,
 			);
 			path = Persistence;
 			sourceTree = "<group>";
@@ -226,6 +250,7 @@
 		BF3DCFF3273997B80044FB1F /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				BFFB84BC273AB89B00FA4E5E /* TargetsDBService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -233,6 +258,7 @@
 		BF3DCFF4273997BF0044FB1F /* Interactors */ = {
 			isa = PBXGroup;
 			children = (
+				BFFB84B2273AB40300FA4E5E /* TargetsInteractor.swift */,
 			);
 			path = Interactors;
 			sourceTree = "<group>";
@@ -302,6 +328,23 @@
 				BFFB84A2273A65D000FA4E5E /* SettingsScreen.swift */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		BFFB84AD273AB14500FA4E5E /* Targets */ = {
+			isa = PBXGroup;
+			children = (
+				BFFB84AE273AB15B00FA4E5E /* TargetsScreen.swift */,
+			);
+			path = Targets;
+			sourceTree = "<group>";
+		};
+		BFFB84B7273AB62400FA4E5E /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				BFFB84B8273AB63700FA4E5E /* TargetModelObject+CoreDataClass.swift */,
+				BFFB84B9273AB63700FA4E5E /* TargetModelObject+CoreDataProperties.swift */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -417,27 +460,36 @@
 				BF3DCFE4273994CF0044FB1F /* SubscribersCompletionExtension.swift in Sources */,
 				BF3DCFDD273994CF0044FB1F /* ViewExtension.swift in Sources */,
 				BFFB84A0273A657000FA4E5E /* DateExtension.swift in Sources */,
+				BFFB84B3273AB40300FA4E5E /* TargetsInteractor.swift in Sources */,
 				BF3DCFE5273994CF0044FB1F /* AnyCancellableExtension.swift in Sources */,
 				BF3DCFEA273994CF0044FB1F /* JsonEncoderExtension.swift in Sources */,
 				BF3DCFE3273994CF0044FB1F /* ErrorExtension.swift in Sources */,
+				BFFB84B6273AB5B100FA4E5E /* MidKnightDataBase.xcdatamodeld in Sources */,
 				BF3DCFB5273994040044FB1F /* AppState.swift in Sources */,
 				BF3DCFEB273994CF0044FB1F /* ManagedEntityExtension.swift in Sources */,
+				BFFB84BD273AB89B00FA4E5E /* TargetsDBService.swift in Sources */,
 				BF3DCFE8273994CF0044FB1F /* ResultExtension.swift in Sources */,
+				BFFB84B1273AB1A900FA4E5E /* Target.swift in Sources */,
 				BF3DCFE7273994CF0044FB1F /* ProcessInfoExtension.swift in Sources */,
 				BF3DCFE6273994CF0044FB1F /* NSManagedObjectContextExtension.swift in Sources */,
 				BF6FE34E27398DE100891498 /* MidKnightApp.swift in Sources */,
+				BFFB84BB273AB63800FA4E5E /* TargetModelObject+CoreDataProperties.swift in Sources */,
+				BFFB84C1273ABA7200FA4E5E /* DBServices.swift in Sources */,
 				BF3DCFE2273994CF0044FB1F /* PublisherExtension.swift in Sources */,
 				BF3DCFF9273999190044FB1F /* LoadingScreen.swift in Sources */,
 				BFFB849E273A615000FA4E5E /* DefaultsKeysExtension.swift in Sources */,
 				BF3DCFCC273994A30044FB1F /* APIError.swift in Sources */,
 				BF3DCFE9273994CF0044FB1F /* OptionalExtension.swift in Sources */,
 				BF3DCFC2273994430044FB1F /* Store.swift in Sources */,
+				BFFB84BA273AB63800FA4E5E /* TargetModelObject+CoreDataClass.swift in Sources */,
 				BF3DCFEE273996060044FB1F /* EnvInteractors.swift in Sources */,
 				BF3DCFB3273993D60044FB1F /* Interactors.swift in Sources */,
+				BFFB84AF273AB15B00FA4E5E /* TargetsScreen.swift in Sources */,
 				BF3DCFBE273994430044FB1F /* APICall.swift in Sources */,
 				BF3DCFC1273994430044FB1F /* WebService.swift in Sources */,
 				BF3DCFB02739928E0044FB1F /* AppEnvironment.swift in Sources */,
 				BF3DCFC6273994720044FB1F /* LazyListIterator.swift in Sources */,
+				BFFB84BF273ABA5900FA4E5E /* EnvDBServices.swift in Sources */,
 				BF3DCFFC273999DD0044FB1F /* TodayScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -664,6 +716,19 @@
 			productName = SwiftyUserDefaults;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		BFFB84B4273AB5B100FA4E5E /* MidKnightDataBase.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				BFFB84B5273AB5B100FA4E5E /* MidKnightDataBase.xcdatamodel */,
+			);
+			currentVersion = BFFB84B5273AB5B100FA4E5E /* MidKnightDataBase.xcdatamodel */;
+			path = MidKnightDataBase.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = BF6FE34227398DE100891498 /* Project object */;
 }

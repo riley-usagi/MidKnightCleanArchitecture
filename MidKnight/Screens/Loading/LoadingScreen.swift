@@ -11,7 +11,7 @@ struct LoadingScreen: View {
     
       .onAppear {
         
-        // clearAllUserDefaultsData()
+        clearAllUserDefaultsData()
         
         // Здесь будет происходить настройка первоначальных флагов
         if !(UserDefaults.standard.bool(forKey: "HasLaunchedOnce")) {
@@ -40,7 +40,7 @@ struct LoadingScreen: View {
           UserDefaults.standard.set(true, forKey: "HasLaunchedOnce")
         }
         
-        container.appState.value.currentPage = .today
+        container.appState.value.currentPage = .targets
       }
   }
   
