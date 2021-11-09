@@ -12,5 +12,6 @@ extension DefaultsKeys {
   var totalCash: DefaultsKey<Int> { .init("TotalCash", defaultValue: 21_000) }
   
   /// Сумма на день
-  var todayCash: DefaultsKey<Int> { .init("TodayCash", defaultValue: 525) }
+//  var todayCash: DefaultsKey<Int> { .init("TodayCash", defaultValue: 525) }
+  var todayCash: DefaultsKey<Int?> { .init("TodayCash") }
 }
