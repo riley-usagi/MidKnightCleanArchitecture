@@ -6,19 +6,24 @@ extension Container {
     
     let todayInteractor: TodayInteractor
     
+    let settingsInteractor: SettingsInteractor
+    
     static var stub: Self {
       .init(
         StubTargetsInteractor(),
-        StubTodayInteractor()
+        StubTodayInteractor(),
+        StubSettingsInteractor()
       )
     }
     
     init(
       _ targetsInteractor: TargetsInteractor,
-      _ todayInteractor: TodayInteractor
+      _ todayInteractor: TodayInteractor,
+      _ settingsInteractor: SettingsInteractor
     ) {
       self.targetsInteractor  = targetsInteractor
       self.todayInteractor    = todayInteractor
+      self.settingsInteractor = settingsInteractor
     }
   }
 }
