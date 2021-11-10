@@ -3,43 +3,40 @@ import SwiftUI
 
 struct SettingsScreen: View {
   
-  @State private var payDay = Defaults[\.payDay]
-  @State private var totalCash = Defaults[\.totalCash]
+  @Environment(\.container) var container: Container
   
-  let dateFormatter = DateFormatter()
-  
-  let arrayOfFourthDays: [Date] = Date.arrayOfFourthDays()
+  @State private var totalCash: Loadable<Int>
   
   var body: some View {
-    
-    VStack(spacing: 0) {
-      
-      Text("\(totalCash) до зарплаты")
-        .font(.largeTitle)
-        .padding(.bottom)
-      
-      Text("\(totalCash / Date.daysBetweenPlusOne(Date(), payDay)) в день")
-        .font(.callout)
-        .padding(.bottom)
-      
-      Menu("\(dateFormatter.string(from: payDay))") {
-        
-        ForEach(Array(Date.arrayOfFourthDays().enumerated().sorted(by: >)), id: \.element) { index, item in
-          
-          Button {
-            payDay = arrayOfFourthDays[index]
-          } label: {
-            Text(
-              "\(self.dateFormatter.string(from: self.arrayOfFourthDays[index])) - \(index + 1) \(Date.dayDeclension(dayNumber: index + 1))"
-            )
-          }
-        }
-      }
-    }
+    content
   }
   
-  init() {
-    dateFormatter.dateFormat  = "d MMM"
-    dateFormatter.locale      = Locale(identifier: "ru_RU")
+  init(_ totalCash: Loadable<Int> = .notRequested) {
+    self._totalCash = .init(initialValue: totalCash)
+  }
+}
+
+private extension SettingsScreen {
+  var content: some View {
+    switch totalCash {
+
+    case .notRequested:
+      return AnyView(notRequestedView)
+    case .isLoading:
+      return AnyView(ProgressView())
+    case let .loaded(totalCash):
+      return AnyView(loadedView(totalCash))
+    case .failed:
+      return AnyView(Text("Failed"))
+    }
+  }
+}
+
+private extension SettingsScreen {
+  var notRequestedView: some View {
+    Text("")
+      .onAppear {
+        container.interactors.settingsInteractor.loadTotalCash($totalCash)
+      }
   }
 }

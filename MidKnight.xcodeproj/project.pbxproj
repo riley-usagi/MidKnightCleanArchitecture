@@ -45,6 +45,9 @@
 		BF6FE35227398DE300891498 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF6FE35127398DE300891498 /* Assets.xcassets */; };
 		BF6FE35527398DE300891498 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF6FE35427398DE300891498 /* Preview Assets.xcassets */; };
 		BF744578273BB3C30075EA60 /* TodayLoaded.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF744577273BB3C30075EA60 /* TodayLoaded.swift */; };
+		BF74457A273BC00A0075EA60 /* SettingsInterctor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF744579273BC00A0075EA60 /* SettingsInterctor.swift */; };
+		BF74457D273BC1720075EA60 /* SettingsLoaded.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF74457C273BC1720075EA60 /* SettingsLoaded.swift */; };
+		BF744580273BC6990075EA60 /* PayDayPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF74457F273BC6990075EA60 /* PayDayPickerView.swift */; };
 		BFFB849C273A60D500FA4E5E /* SwiftyUserDefaults in Frameworks */ = {isa = PBXBuildFile; productRef = BFFB849B273A60D500FA4E5E /* SwiftyUserDefaults */; };
 		BFFB849E273A615000FA4E5E /* DefaultsKeysExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFB849D273A615000FA4E5E /* DefaultsKeysExtension.swift */; };
 		BFFB84A0273A657000FA4E5E /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFB849F273A657000FA4E5E /* DateExtension.swift */; };
@@ -101,6 +104,9 @@
 		BF6FE35127398DE300891498 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BF6FE35427398DE300891498 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BF744577273BB3C30075EA60 /* TodayLoaded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayLoaded.swift; sourceTree = "<group>"; };
+		BF744579273BC00A0075EA60 /* SettingsInterctor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsInterctor.swift; sourceTree = "<group>"; };
+		BF74457C273BC1720075EA60 /* SettingsLoaded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLoaded.swift; sourceTree = "<group>"; };
+		BF74457F273BC6990075EA60 /* PayDayPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayDayPickerView.swift; sourceTree = "<group>"; };
 		BFFB849D273A615000FA4E5E /* DefaultsKeysExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultsKeysExtension.swift; sourceTree = "<group>"; };
 		BFFB849F273A657000FA4E5E /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		BFFB84A2273A65D000FA4E5E /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
@@ -163,9 +169,9 @@
 			children = (
 				BF3DCFB4273994040044FB1F /* AppState.swift */,
 				BF3DCFB62739941C0044FB1F /* Container.swift */,
+				BFFB84C0273ABA7200FA4E5E /* DBServices.swift */,
 				BF3DCFB2273993D60044FB1F /* Interactors.swift */,
 				BF3DCFF5273998360044FB1F /* Routes.swift */,
-				BFFB84C0273ABA7200FA4E5E /* DBServices.swift */,
 			);
 			path = Injected;
 			sourceTree = "<group>";
@@ -262,6 +268,7 @@
 		BF3DCFF4273997BF0044FB1F /* Interactors */ = {
 			isa = PBXGroup;
 			children = (
+				BF744579273BC00A0075EA60 /* SettingsInterctor.swift */,
 				BFFB84B2273AB40300FA4E5E /* TargetsInteractor.swift */,
 				BF155149273AE8080027FE83 /* TodayInteractor.swift */,
 			);
@@ -336,9 +343,27 @@
 			path = States;
 			sourceTree = "<group>";
 		};
+		BF74457B273BC1650075EA60 /* States */ = {
+			isa = PBXGroup;
+			children = (
+				BF74457C273BC1720075EA60 /* SettingsLoaded.swift */,
+			);
+			path = States;
+			sourceTree = "<group>";
+		};
+		BF74457E273BC6880075EA60 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				BF74457F273BC6990075EA60 /* PayDayPickerView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		BFFB84A1273A65C500FA4E5E /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				BF74457E273BC6880075EA60 /* Components */,
+				BF74457B273BC1650075EA60 /* States */,
 				BFFB84A2273A65D000FA4E5E /* SettingsScreen.swift */,
 			);
 			path = Settings;
@@ -466,6 +491,7 @@
 				BF3DCFB72739941C0044FB1F /* Container.swift in Sources */,
 				BF3DCFC0273994430044FB1F /* Loadable.swift in Sources */,
 				BF744578273BB3C30075EA60 /* TodayLoaded.swift in Sources */,
+				BF74457D273BC1720075EA60 /* SettingsLoaded.swift in Sources */,
 				BF3DCFBF273994430044FB1F /* CancelBag.swift in Sources */,
 				BF3DCFC92739947E0044FB1F /* LazyList.swift in Sources */,
 				BF3DCFDF273994CF0044FB1F /* JustExtension.swift in Sources */,
@@ -478,6 +504,8 @@
 				BFFB84B3273AB40300FA4E5E /* TargetsInteractor.swift in Sources */,
 				BF15514A273AE8080027FE83 /* TodayInteractor.swift in Sources */,
 				BF3DCFE5273994CF0044FB1F /* AnyCancellableExtension.swift in Sources */,
+				BF744580273BC6990075EA60 /* PayDayPickerView.swift in Sources */,
+				BF74457A273BC00A0075EA60 /* SettingsInterctor.swift in Sources */,
 				BF3DCFEA273994CF0044FB1F /* JsonEncoderExtension.swift in Sources */,
 				BF3DCFE3273994CF0044FB1F /* ErrorExtension.swift in Sources */,
 				BFFB84B6273AB5B100FA4E5E /* MidKnightDataBase.xcdatamodeld in Sources */,
