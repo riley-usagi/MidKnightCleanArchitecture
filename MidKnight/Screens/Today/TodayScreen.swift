@@ -1,3 +1,4 @@
+import Combine
 import SwiftyUserDefaults
 import SwiftUI
 
@@ -22,6 +23,13 @@ struct TodayScreen: View {
   
   var body: some View {
     content
+      .onReceive(todayCashUpdate) { _ in
+        DispatchQueue.main.async {
+          withAnimation(.spring()) {
+            container.interactors.todayInteractor.loadTodayCash($todayCash)
+          }
+        }
+      }
   }
 }
 
@@ -47,5 +55,12 @@ private extension TodayScreen {
       .onAppear {
         container.interactors.todayInteractor.loadTodayCash($todayCash)
       }
+  }
+}
+
+private extension TodayScreen {
+  
+  var todayCashUpdate: AnyPublisher<Int, Never> {
+    container.appState.updates(for: \.userData.todayCash)
   }
 }
