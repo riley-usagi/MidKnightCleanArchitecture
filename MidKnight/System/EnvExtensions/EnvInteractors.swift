@@ -9,6 +9,8 @@ extension AppEnvironment {
       appState, dbServices.targetsDBService
     )
     
-    return .init(targetsInteractor)
+    let todayInteractor = RealTodayInteractor(appState)
+    
+    return .init(targetsInteractor, todayInteractor)
   }
 }
