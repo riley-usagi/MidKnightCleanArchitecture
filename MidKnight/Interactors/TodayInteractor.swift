@@ -3,6 +3,7 @@ import SwiftUI
 
 protocol TodayInteractor {
   func loadTodayCash(_ todayCash: LoadableSubject<Int>)
+  func updateCash(_ calculatedValue: Binding<String>)
 }
 
 struct RealTodayInteractor: TodayInteractor {
@@ -25,8 +26,15 @@ struct RealTodayInteractor: TodayInteractor {
       }
       .store(in: cancelBag)
   }
+  
+  func updateCash(_ calculatedValue: Binding<String>) {
+    #warning("Fix")
+    appState[\.userData].todayCash -= Int(calculatedValue.wrappedValue)!
+    appState[\.userData].totalCash -= Int(calculatedValue.wrappedValue)!
+  }
 }
 
 struct StubTodayInteractor: TodayInteractor {
   func loadTodayCash(_ todayCash: LoadableSubject<Int>) {}
+  func updateCash(_ calculatedValue: Binding<String>) {}
 }

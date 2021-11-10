@@ -28,13 +28,6 @@ extension TodayScreen {
         
         Divider()
         
-        //        TextField("For today", text: $calculatedValue, prompt: Text(""))
-        //          .disabled(true)
-        //          .keyboardType(.numberPad)
-        //          .padding()
-        //
-        //        Divider()
-        
         VStack {
           HStack {
             Text(calculatedValue)
@@ -55,7 +48,6 @@ extension TodayScreen {
               ForEach(row, id: \.self) { item in
                 Button {
                   self.didTap(button: item)
-                  #warning("container")
                 } label: {
                   Text(item.rawValue)
                     .font(.system(size: 32))
@@ -109,6 +101,9 @@ extension TodayScreen {
   func didTap(button: CalculatorButton) {
     switch button {
     case .clear:
+      self.calculatedValue = "0"
+    case .enter:
+      container.interactors.todayInteractor.updateCash($calculatedValue)
       self.calculatedValue = "0"
     default:
       let number = button.rawValue
