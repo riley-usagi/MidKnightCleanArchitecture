@@ -4,12 +4,15 @@ extension TodayScreen {
   
   func loadedView(_ todayCash: Int) -> some View {
     ZStack {
+      Color.black
+        .edgesIgnoringSafeArea(.all)
       
       VStack(spacing: 0) {
         
         HStack {
           Text("\(todayCash) на сегодня")
             .font(.largeTitle)
+            .foregroundColor(.white)
           
           Spacer()
           
@@ -19,21 +22,21 @@ extension TodayScreen {
             Image(systemName: "gearshape.fill")
               .resizable()
               .frame(width: 30, height: 30)
-              .foregroundColor(.black)
+              .foregroundColor(.white)
           }
           .buttonStyle(DefaultButtonStyle())
           
         }
         .padding()
         
-        Divider()
-        
+        Divider().background(Color.white)
+          
         VStack {
           HStack {
             Text(calculatedValue)
               .bold()
               .font(.system(size: 72))
-              .foregroundColor(.black)
+              .foregroundColor(.white)
             
             Spacer()
           }
@@ -41,6 +44,11 @@ extension TodayScreen {
           
           Spacer()
           
+          Text("Здесь я предлагаю добавить умные советы по экономии денег. Записать 10 советов и включить их рандомное появление при переходе на экран.")
+            .font(.system(size: 20))
+            .foregroundColor(.white)
+          
+          Divider().background(Color.white)
           
           ForEach(buttons, id: \.self) { row in
             
@@ -82,7 +90,6 @@ enum CalculatorButton: String {
   case nine   = "9"
   case zero   = "0"
   case clear  = "C"
-  case dot    = "."
   case enter  = "OK"
   
   var buttonColor: Color {
@@ -91,7 +98,7 @@ enum CalculatorButton: String {
       return .red
     case .enter:
       return .orange
-    case .one, .two, .three, .four, .five, .six, .seven, .eight, .nine, .zero, .dot:
+    case .one, .two, .three, .four, .five, .six, .seven, .eight, .nine, .zero:
       return Color(.lightGray)
     }
   }
@@ -101,7 +108,7 @@ extension TodayScreen {
   func didTap(button: CalculatorButton) {
     switch button {
     case .clear:
-      self.calculatedValue = "0"
+      calculatedValue = String(calculatedValue.dropLast())
     case .enter:
       container.interactors.todayInteractor.updateCash($calculatedValue)
       self.calculatedValue = "0"
@@ -117,20 +124,10 @@ extension TodayScreen {
   }
   
   func buttonWidth(item: CalculatorButton) -> CGFloat {
-    if item == .enter {
-      return ((UIScreen.main.bounds.width - (4*12)) / 4) * 2
-    }
-    if item == .zero {
-      return ((UIScreen.main.bounds.width - (4*12)) / 4) * 2
-    }
-    if item == .clear {
-      return ((UIScreen.main.bounds.width - (4*12)) / 4) * 2
-    }
     return (UIScreen.main.bounds.width - (5*12)) / 4
   }
   
   func buttonHeight() -> CGFloat {
     return (UIScreen.main.bounds.width - (5*12)) / 4
   }
-  
 }
