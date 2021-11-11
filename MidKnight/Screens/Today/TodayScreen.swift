@@ -9,10 +9,10 @@ struct TodayScreen: View {
   @State private var todayCash: Loadable<Int>
   
   let buttons: [[CalculatorButton]] = [
-    [.seven, .eight, .nine],
-    [.four, .five, .six],
-    [.one, .two, .three],
-    [.zero, .clear, .enter]
+    [.seven, .eight, .nine, .clear],
+    [.four, .five, .six, .emptyEnter],
+    [.one, .two, .three, .emptyEnter],
+    [.emptyZero, .zero, .emptyZero, .enter]
   ]
   
   @State var calculatedValue: String = "0"

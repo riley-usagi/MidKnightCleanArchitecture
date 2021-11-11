@@ -30,8 +30,8 @@ extension TodayScreen {
         .padding()
         
         Divider().background(Color.white)
-          
-        VStack {
+        
+        VStack(spacing: 0) {
           HStack {
             Text(calculatedValue)
               .bold()
@@ -52,54 +52,56 @@ extension TodayScreen {
           
           ForEach(buttons, id: \.self) { row in
             
-            HStack(spacing: 12) {
+            HStack(spacing: 0) {
               ForEach(row, id: \.self) { item in
                 Button {
                   self.didTap(button: item)
                 } label: {
                   Text(item.rawValue)
-                    .font(.system(size: 32))
+                    .font(.system(size: 16))
                     .frame(
                       width: self.buttonWidth(item: item),
                       height: self.buttonHeight()
                     )
                     .background(item.buttonColor)
-                    .foregroundColor(.white)
-                    .cornerRadius(self.buttonWidth(item: item) / 2)
+                    .foregroundColor(.black)
+                  //                    .cornerRadius(self.buttonWidth(item: item) / 2)
                 }
+                .border(Color.gray, width: 0.5)
               }
             }
           }
         }
         .padding(.bottom, 3)
       }
-      .padding(.horizontal, 30)
     }
   }
 }
 
 enum CalculatorButton: String {
-  case one    = "1"
-  case two    = "2"
-  case three  = "3"
-  case four   = "4"
-  case five   = "5"
-  case six    = "6"
-  case seven  = "7"
-  case eight  = "8"
-  case nine   = "9"
-  case zero   = "0"
-  case clear  = "C"
-  case enter  = "OK"
+  case one        = "1"
+  case two        = "2"
+  case three      = "3"
+  case four       = "4"
+  case five       = "5"
+  case six        = "6"
+  case seven      = "7"
+  case eight      = "8"
+  case nine       = "9"
+  case zero       = "0"
+  case clear      = "C"
+  case enter      = "OK"
+  case emptyZero  = ""
+  case emptyEnter = " "
   
   var buttonColor: Color {
     switch self {
     case .clear:
-      return .red
-    case .enter:
+      return .gray
+    case .enter, .emptyEnter:
       return .orange
-    case .one, .two, .three, .four, .five, .six, .seven, .eight, .nine, .zero:
-      return Color(.lightGray)
+    case .one, .two, .three, .four, .five, .six, .seven, .eight, .nine, .zero, .emptyZero:
+      return Color(.white)
     }
   }
 }
@@ -108,7 +110,11 @@ extension TodayScreen {
   func didTap(button: CalculatorButton) {
     switch button {
     case .clear:
-      calculatedValue = String(calculatedValue.dropLast())
+      if calculatedValue.count == 1 {
+        calculatedValue = "0"
+      } else {
+        calculatedValue = String(calculatedValue.dropLast())
+      }
     case .enter:
       container.interactors.todayInteractor.updateCash($calculatedValue)
       self.calculatedValue = "0"
@@ -124,7 +130,7 @@ extension TodayScreen {
   }
   
   func buttonWidth(item: CalculatorButton) -> CGFloat {
-    return (UIScreen.main.bounds.width - (5*12)) / 4
+    return (UIScreen.main.bounds.width - (5)) / 4
   }
   
   func buttonHeight() -> CGFloat {
