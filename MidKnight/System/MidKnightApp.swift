@@ -5,8 +5,13 @@ import SwiftUI
   let environment: AppEnvironment
   
   var body: some Scene {
+    
     WindowGroup {
-      ContentView(environment.container)
+      
+      GeometryReader { reader in
+        ContentView(environment.container, reader.size)
+          .preferredColorScheme(.dark)
+      }
     }
   }
   

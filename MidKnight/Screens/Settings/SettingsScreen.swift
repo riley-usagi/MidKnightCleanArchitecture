@@ -1,4 +1,3 @@
-import SwiftyUserDefaults
 import SwiftUI
 
 struct SettingsScreen: View {

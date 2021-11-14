@@ -1,29 +1,23 @@
-import Combine
 import SwiftUI
 
-struct ContentView: View {
+struct TempScreen: View {
+  
+  @Environment(\.container) var container: Container
   
   var screenSize: CGSize
   
-  private let container: Container
-  
   @State var offset: CGFloat = 0
+
   
-  var screens = [
-    AnyView(TargetsScreen()),
+  var items = [
+    AnyView(SomeSheat()),
     AnyView(TodayScreen()),
     AnyView(SettingsScreen())
   ]
   
-  init(_ container: Container, _ screenSize: CGSize) {
-    self.container = container
-    self.screenSize = screenSize
-  }
-  
   var body: some View {
-    ZStack {
-      
-      // MARK: - Content
+    
+    VStack {
       
       OffsetPageTabView(offset: $offset) {
         
@@ -33,7 +27,7 @@ struct ContentView: View {
           ForEach(0...2, id: \.self) { index in
             
             VStack(spacing: 0) {
-              screens[index]
+              items[index]
                 .inject(container)
             }
             .padding()
@@ -44,51 +38,66 @@ struct ContentView: View {
         
       }
       
-      
       // MARK: - Pagination
       
-      VStack(spacing: 0) {
+      HStack(alignment: .bottom) {
         
-        HStack {
+        
+        // MARK: - Indicators
+        
+        HStack(spacing: 12) {
           
-          HStack(spacing: 12) {
-            
-            ForEach(screens.indices, id: \.self) { index in
-              Capsule()
-                .fill(.white)
-                .frame(width: getIndex() == index ? 20 : 7, height: 7)
-              
-            }
-            
-          }
-          .overlay(
-            
+          ForEach(items.indices, id: \.self) { index in
             Capsule()
               .fill(.white)
-              .frame(width: 20, height: 7)
-              .offset(x: getIndicatorOffset())
+              .frame(width: getIndex() == index ? 20 : 7, height: 7)
             
-            , alignment: .leading
-          )
-          .offset(x: 10, y: -15)
+          }
+          
         }
-        .padding()
-        .offset(y: 20)
+        .overlay(
+          
+          Capsule()
+            .fill(.white)
+            .frame(width: 20, height: 7)
+            .offset(x: getIndicatorOffset())
+          
+          , alignment: .leading
+        )
+        .offset(x: 10, y: -15)
         
         Spacer()
       }
+      .padding()
+      .offset(y: -20)
     }
     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
     .animation(.easeInOut, value: getIndex())
   }
-}
-
-
-// MARK: - Helpers
-
-extension ContentView {
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   func getIndicatorOffset() -> CGFloat {
     let progress = offset / screenSize.width
+    
+    // 12 scpacing
+    // 7 circle size
     
     let maxWidth: CGFloat = 12 + 7
     
@@ -98,7 +107,7 @@ extension ContentView {
   func getIndex() -> Int {
     let progress = round(offset / screenSize.width)
     
-    let index = min(Int(progress), screens.count - 1)
+    let index = min(Int(progress), items.count - 1)
     
     return index
   }
