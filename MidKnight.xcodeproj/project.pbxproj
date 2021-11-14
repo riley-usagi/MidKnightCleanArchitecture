@@ -48,8 +48,10 @@
 		BF74457A273BC00A0075EA60 /* SettingsInterctor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF744579273BC00A0075EA60 /* SettingsInterctor.swift */; };
 		BF74457D273BC1720075EA60 /* SettingsLoaded.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF74457C273BC1720075EA60 /* SettingsLoaded.swift */; };
 		BF744580273BC6990075EA60 /* PayDayPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF74457F273BC6990075EA60 /* PayDayPickerView.swift */; };
-		BFFB849C273A60D500FA4E5E /* SwiftyUserDefaults in Frameworks */ = {isa = PBXBuildFile; productRef = BFFB849B273A60D500FA4E5E /* SwiftyUserDefaults */; };
-		BFFB849E273A615000FA4E5E /* DefaultsKeysExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFB849D273A615000FA4E5E /* DefaultsKeysExtension.swift */; };
+		BFA06B7B2740507F0088D08D /* TempScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA06B7A2740507F0088D08D /* TempScreen.swift */; };
+		BFA06B7D2740E0A90088D08D /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA06B7C2740E0A90088D08D /* Item.swift */; };
+		BFA06B7F2740E2E80088D08D /* OffsetPageTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA06B7E2740E2E80088D08D /* OffsetPageTabView.swift */; };
+		BFA06B81274108840088D08D /* SomeSheat.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA06B80274108840088D08D /* SomeSheat.swift */; };
 		BFFB84A0273A657000FA4E5E /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFB849F273A657000FA4E5E /* DateExtension.swift */; };
 		BFFB84A3273A65D000FA4E5E /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFB84A2273A65D000FA4E5E /* SettingsScreen.swift */; };
 		BFFB84AF273AB15B00FA4E5E /* TargetsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFB84AE273AB15B00FA4E5E /* TargetsScreen.swift */; };
@@ -107,7 +109,10 @@
 		BF744579273BC00A0075EA60 /* SettingsInterctor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsInterctor.swift; sourceTree = "<group>"; };
 		BF74457C273BC1720075EA60 /* SettingsLoaded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLoaded.swift; sourceTree = "<group>"; };
 		BF74457F273BC6990075EA60 /* PayDayPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayDayPickerView.swift; sourceTree = "<group>"; };
-		BFFB849D273A615000FA4E5E /* DefaultsKeysExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultsKeysExtension.swift; sourceTree = "<group>"; };
+		BFA06B7A2740507F0088D08D /* TempScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempScreen.swift; sourceTree = "<group>"; };
+		BFA06B7C2740E0A90088D08D /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		BFA06B7E2740E2E80088D08D /* OffsetPageTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffsetPageTabView.swift; sourceTree = "<group>"; };
+		BFA06B80274108840088D08D /* SomeSheat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SomeSheat.swift; sourceTree = "<group>"; };
 		BFFB849F273A657000FA4E5E /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		BFFB84A2273A65D000FA4E5E /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
 		BFFB84AE273AB15B00FA4E5E /* TargetsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetsScreen.swift; sourceTree = "<group>"; };
@@ -126,7 +131,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BFFB849C273A60D500FA4E5E /* SwiftyUserDefaults in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -155,6 +159,7 @@
 		BF3DCFAB273990000044FB1F /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				BFA06B79274050720088D08D /* Temp */,
 				BFFB84AD273AB14500FA4E5E /* Targets */,
 				BFFB84A1273A65C500FA4E5E /* Settings */,
 				BF6FE34F27398DE100891498 /* ContentView.swift */,
@@ -212,7 +217,6 @@
 			children = (
 				BF3DCFD6273994CF0044FB1F /* AnyCancellableExtension.swift */,
 				BFFB849F273A657000FA4E5E /* DateExtension.swift */,
-				BFFB849D273A615000FA4E5E /* DefaultsKeysExtension.swift */,
 				BF3DCFD4273994CF0044FB1F /* ErrorExtension.swift */,
 				BF3DCFCF273994CE0044FB1F /* HTTPCodesExtension.swift */,
 				BF3DCFDB273994CF0044FB1F /* JsonEncoderExtension.swift */,
@@ -359,6 +363,17 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		BFA06B79274050720088D08D /* Temp */ = {
+			isa = PBXGroup;
+			children = (
+				BFA06B7A2740507F0088D08D /* TempScreen.swift */,
+				BFA06B7C2740E0A90088D08D /* Item.swift */,
+				BFA06B7E2740E2E80088D08D /* OffsetPageTabView.swift */,
+				BFA06B80274108840088D08D /* SomeSheat.swift */,
+			);
+			path = Temp;
+			sourceTree = "<group>";
+		};
 		BFFB84A1273A65C500FA4E5E /* Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -404,7 +419,6 @@
 			);
 			name = MidKnight;
 			packageProductDependencies = (
-				BFFB849B273A60D500FA4E5E /* SwiftyUserDefaults */,
 			);
 			productName = MidKnight;
 			productReference = BF6FE34A27398DE100891498 /* MidKnight.app */;
@@ -435,7 +449,6 @@
 			);
 			mainGroup = BF6FE34127398DE100891498;
 			packageReferences = (
-				BFFB849A273A60D500FA4E5E /* XCRemoteSwiftPackageReference "SwiftyUserDefaults" */,
 			);
 			productRefGroup = BF6FE34B27398DE100891498 /* Products */;
 			projectDirPath = "";
@@ -485,6 +498,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF3DCFDE273994CF0044FB1F /* HTTPCodesExtension.swift in Sources */,
+				BFA06B7B2740507F0088D08D /* TempScreen.swift in Sources */,
 				BF3DCFE1273994CF0044FB1F /* NSSetExtension.swift in Sources */,
 				BF6FE35027398DE100891498 /* ContentView.swift in Sources */,
 				BF3DCFC7273994720044FB1F /* LazyListCache.swift in Sources */,
@@ -492,12 +506,14 @@
 				BF3DCFC0273994430044FB1F /* Loadable.swift in Sources */,
 				BF744578273BB3C30075EA60 /* TodayLoaded.swift in Sources */,
 				BF74457D273BC1720075EA60 /* SettingsLoaded.swift in Sources */,
+				BFA06B81274108840088D08D /* SomeSheat.swift in Sources */,
 				BF3DCFBF273994430044FB1F /* CancelBag.swift in Sources */,
 				BF3DCFC92739947E0044FB1F /* LazyList.swift in Sources */,
 				BF3DCFDF273994CF0044FB1F /* JustExtension.swift in Sources */,
 				BFFB84A3273A65D000FA4E5E /* SettingsScreen.swift in Sources */,
 				BF3DCFF6273998360044FB1F /* Routes.swift in Sources */,
 				BF3DCFF2273997AA0044FB1F /* CoreDataStack.swift in Sources */,
+				BFA06B7D2740E0A90088D08D /* Item.swift in Sources */,
 				BF3DCFE4273994CF0044FB1F /* SubscribersCompletionExtension.swift in Sources */,
 				BF3DCFDD273994CF0044FB1F /* ViewExtension.swift in Sources */,
 				BFFB84A0273A657000FA4E5E /* DateExtension.swift in Sources */,
@@ -521,7 +537,6 @@
 				BFFB84C1273ABA7200FA4E5E /* DBServices.swift in Sources */,
 				BF3DCFE2273994CF0044FB1F /* PublisherExtension.swift in Sources */,
 				BF3DCFF9273999190044FB1F /* LoadingScreen.swift in Sources */,
-				BFFB849E273A615000FA4E5E /* DefaultsKeysExtension.swift in Sources */,
 				BF3DCFCC273994A30044FB1F /* APIError.swift in Sources */,
 				BF3DCFE9273994CF0044FB1F /* OptionalExtension.swift in Sources */,
 				BF3DCFC2273994430044FB1F /* Store.swift in Sources */,
@@ -530,6 +545,7 @@
 				BF3DCFB3273993D60044FB1F /* Interactors.swift in Sources */,
 				BFFB84AF273AB15B00FA4E5E /* TargetsScreen.swift in Sources */,
 				BF3DCFBE273994430044FB1F /* APICall.swift in Sources */,
+				BFA06B7F2740E2E80088D08D /* OffsetPageTabView.swift in Sources */,
 				BF3DCFC1273994430044FB1F /* WebService.swift in Sources */,
 				BF3DCFB02739928E0044FB1F /* AppEnvironment.swift in Sources */,
 				BF3DCFC6273994720044FB1F /* LazyListIterator.swift in Sources */,
@@ -741,25 +757,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		BFFB849A273A60D500FA4E5E /* XCRemoteSwiftPackageReference "SwiftyUserDefaults" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/sunshinejr/SwiftyUserDefaults.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		BFFB849B273A60D500FA4E5E /* SwiftyUserDefaults */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = BFFB849A273A60D500FA4E5E /* XCRemoteSwiftPackageReference "SwiftyUserDefaults" */;
-			productName = SwiftyUserDefaults;
-		};
-/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		BFFB84B4273AB5B100FA4E5E /* MidKnightDataBase.xcdatamodeld */ = {

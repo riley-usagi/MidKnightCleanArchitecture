@@ -1,5 +1,4 @@
 import Combine
-import SwiftyUserDefaults
 import SwiftUI
 
 struct TodayScreen: View {
