@@ -50,27 +50,24 @@ private extension PayDayPickerView {
 }
 
 private extension PayDayPickerView {
+  
   func loadedView( _ payDay: Date) -> some View {
     
-    VStack(spacing: 0) {
-      Text("\(totalCash / Date.daysBetweenPlusOne(Date(), payDay)) в день")
-        .font(.callout)
-        .padding(.bottom)
+    Menu("\(dateFormatter.string(from: payDay))") {
       
-      Menu("\(dateFormatter.string(from: payDay))") {
+      ForEach(Array(Date.arrayOfFourthDays().enumerated().sorted(by: >)), id: \.element) { index, item in
         
-        ForEach(Array(Date.arrayOfFourthDays().enumerated().sorted(by: >)), id: \.element) { index, item in
+        Button {
           
-          Button {
-            
-            container.interactors.settingsInteractor.updatePayDay(item)
-            
-            DispatchQueue.main.async {
-              withAnimation(.spring()) {
-                container.interactors.settingsInteractor.loadPayDay($payDay)
-              }
+          container.interactors.settingsInteractor.updatePayDay(item)
+          
+          DispatchQueue.main.async {
+            withAnimation(.spring()) {
+              container.interactors.settingsInteractor.loadPayDay($payDay)
             }
-          } label: {
+          }
+        } label: {
+          HStack(spacing: 0) {
             Text(
               "\(self.dateFormatter.string(from: self.arrayOfFourthDays[index])) - \(index + 1) \(Date.dayDeclension(dayNumber: index + 1))"
             )
@@ -78,5 +75,18 @@ private extension PayDayPickerView {
         }
       }
     }
+    .font(.title3.bold())
+    .padding(.vertical, 22)
+    .frame(maxWidth: .infinity)
+    .background(
+      .linearGradient(
+        .init(colors: [
+          Color(#colorLiteral(red: 0.4967626929, green: 0.1718424261, blue: 0.9535631537, alpha: 1)),
+          Color(#colorLiteral(red: 0.2051824629, green: 0.2007484436, blue: 0.9180203676, alpha: 1))
+        ]),
+        startPoint: .leading, endPoint: .trailing
+      ), in: RoundedRectangle(cornerRadius: 20)
+    )
+    .foregroundColor(.white)
   }
 }

@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		BF15514A273AE8080027FE83 /* TodayInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF155149273AE8080027FE83 /* TodayInteractor.swift */; };
+		BF374442274157A80008673A /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF374441274157A80008673A /* BackgroundView.swift */; };
+		BF3744442741653D0008673A /* CustomStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3744432741653D0008673A /* CustomStackView.swift */; };
+		BF374446274166CD0008673A /* CustomCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF374445274166CD0008673A /* CustomCorner.swift */; };
 		BF3DCFB02739928E0044FB1F /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3DCFAF2739928E0044FB1F /* AppEnvironment.swift */; };
 		BF3DCFB3273993D60044FB1F /* Interactors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3DCFB2273993D60044FB1F /* Interactors.swift */; };
 		BF3DCFB5273994040044FB1F /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3DCFB4273994040044FB1F /* AppState.swift */; };
@@ -48,10 +51,7 @@
 		BF74457A273BC00A0075EA60 /* SettingsInterctor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF744579273BC00A0075EA60 /* SettingsInterctor.swift */; };
 		BF74457D273BC1720075EA60 /* SettingsLoaded.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF74457C273BC1720075EA60 /* SettingsLoaded.swift */; };
 		BF744580273BC6990075EA60 /* PayDayPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF74457F273BC6990075EA60 /* PayDayPickerView.swift */; };
-		BFA06B7B2740507F0088D08D /* TempScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA06B7A2740507F0088D08D /* TempScreen.swift */; };
-		BFA06B7D2740E0A90088D08D /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA06B7C2740E0A90088D08D /* Item.swift */; };
 		BFA06B7F2740E2E80088D08D /* OffsetPageTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA06B7E2740E2E80088D08D /* OffsetPageTabView.swift */; };
-		BFA06B81274108840088D08D /* SomeSheat.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA06B80274108840088D08D /* SomeSheat.swift */; };
 		BFFB84A0273A657000FA4E5E /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFB849F273A657000FA4E5E /* DateExtension.swift */; };
 		BFFB84A3273A65D000FA4E5E /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFB84A2273A65D000FA4E5E /* SettingsScreen.swift */; };
 		BFFB84AF273AB15B00FA4E5E /* TargetsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFFB84AE273AB15B00FA4E5E /* TargetsScreen.swift */; };
@@ -67,6 +67,9 @@
 
 /* Begin PBXFileReference section */
 		BF155149273AE8080027FE83 /* TodayInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayInteractor.swift; sourceTree = "<group>"; };
+		BF374441274157A80008673A /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
+		BF3744432741653D0008673A /* CustomStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStackView.swift; sourceTree = "<group>"; };
+		BF374445274166CD0008673A /* CustomCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCorner.swift; sourceTree = "<group>"; };
 		BF3DCFAD273990C60044FB1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF3DCFAF2739928E0044FB1F /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
 		BF3DCFB2273993D60044FB1F /* Interactors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interactors.swift; sourceTree = "<group>"; };
@@ -109,10 +112,7 @@
 		BF744579273BC00A0075EA60 /* SettingsInterctor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsInterctor.swift; sourceTree = "<group>"; };
 		BF74457C273BC1720075EA60 /* SettingsLoaded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLoaded.swift; sourceTree = "<group>"; };
 		BF74457F273BC6990075EA60 /* PayDayPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayDayPickerView.swift; sourceTree = "<group>"; };
-		BFA06B7A2740507F0088D08D /* TempScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempScreen.swift; sourceTree = "<group>"; };
-		BFA06B7C2740E0A90088D08D /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		BFA06B7E2740E2E80088D08D /* OffsetPageTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffsetPageTabView.swift; sourceTree = "<group>"; };
-		BFA06B80274108840088D08D /* SomeSheat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SomeSheat.swift; sourceTree = "<group>"; };
 		BFFB849F273A657000FA4E5E /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		BFFB84A2273A65D000FA4E5E /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
 		BFFB84AE273AB15B00FA4E5E /* TargetsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetsScreen.swift; sourceTree = "<group>"; };
@@ -137,6 +137,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BF3744402741579E0008673A /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				BF374441274157A80008673A /* BackgroundView.swift */,
+				BF374445274166CD0008673A /* CustomCorner.swift */,
+				BF3744432741653D0008673A /* CustomStackView.swift */,
+				BFA06B7E2740E2E80088D08D /* OffsetPageTabView.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		BF3DCFA927398FE70044FB1F /* System */ = {
 			isa = PBXGroup;
 			children = (
@@ -159,11 +170,11 @@
 		BF3DCFAB273990000044FB1F /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				BFA06B79274050720088D08D /* Temp */,
-				BFFB84AD273AB14500FA4E5E /* Targets */,
-				BFFB84A1273A65C500FA4E5E /* Settings */,
+				BF3744402741579E0008673A /* Common */,
 				BF6FE34F27398DE100891498 /* ContentView.swift */,
 				BF3DCFF72739990B0044FB1F /* Loading */,
+				BFFB84A1273A65C500FA4E5E /* Settings */,
+				BFFB84AD273AB14500FA4E5E /* Targets */,
 				BF3DCFFA273999D00044FB1F /* Today */,
 			);
 			path = Screens;
@@ -363,17 +374,6 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
-		BFA06B79274050720088D08D /* Temp */ = {
-			isa = PBXGroup;
-			children = (
-				BFA06B7A2740507F0088D08D /* TempScreen.swift */,
-				BFA06B7C2740E0A90088D08D /* Item.swift */,
-				BFA06B7E2740E2E80088D08D /* OffsetPageTabView.swift */,
-				BFA06B80274108840088D08D /* SomeSheat.swift */,
-			);
-			path = Temp;
-			sourceTree = "<group>";
-		};
 		BFFB84A1273A65C500FA4E5E /* Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -498,22 +498,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF3DCFDE273994CF0044FB1F /* HTTPCodesExtension.swift in Sources */,
-				BFA06B7B2740507F0088D08D /* TempScreen.swift in Sources */,
 				BF3DCFE1273994CF0044FB1F /* NSSetExtension.swift in Sources */,
 				BF6FE35027398DE100891498 /* ContentView.swift in Sources */,
+				BF374446274166CD0008673A /* CustomCorner.swift in Sources */,
 				BF3DCFC7273994720044FB1F /* LazyListCache.swift in Sources */,
 				BF3DCFB72739941C0044FB1F /* Container.swift in Sources */,
 				BF3DCFC0273994430044FB1F /* Loadable.swift in Sources */,
 				BF744578273BB3C30075EA60 /* TodayLoaded.swift in Sources */,
 				BF74457D273BC1720075EA60 /* SettingsLoaded.swift in Sources */,
-				BFA06B81274108840088D08D /* SomeSheat.swift in Sources */,
 				BF3DCFBF273994430044FB1F /* CancelBag.swift in Sources */,
 				BF3DCFC92739947E0044FB1F /* LazyList.swift in Sources */,
 				BF3DCFDF273994CF0044FB1F /* JustExtension.swift in Sources */,
 				BFFB84A3273A65D000FA4E5E /* SettingsScreen.swift in Sources */,
 				BF3DCFF6273998360044FB1F /* Routes.swift in Sources */,
 				BF3DCFF2273997AA0044FB1F /* CoreDataStack.swift in Sources */,
-				BFA06B7D2740E0A90088D08D /* Item.swift in Sources */,
 				BF3DCFE4273994CF0044FB1F /* SubscribersCompletionExtension.swift in Sources */,
 				BF3DCFDD273994CF0044FB1F /* ViewExtension.swift in Sources */,
 				BFFB84A0273A657000FA4E5E /* DateExtension.swift in Sources */,
@@ -531,6 +529,7 @@
 				BF3DCFE8273994CF0044FB1F /* ResultExtension.swift in Sources */,
 				BFFB84B1273AB1A900FA4E5E /* Target.swift in Sources */,
 				BF3DCFE7273994CF0044FB1F /* ProcessInfoExtension.swift in Sources */,
+				BF3744442741653D0008673A /* CustomStackView.swift in Sources */,
 				BF3DCFE6273994CF0044FB1F /* NSManagedObjectContextExtension.swift in Sources */,
 				BF6FE34E27398DE100891498 /* MidKnightApp.swift in Sources */,
 				BFFB84BB273AB63800FA4E5E /* TargetModelObject+CoreDataProperties.swift in Sources */,
@@ -543,6 +542,7 @@
 				BFFB84BA273AB63800FA4E5E /* TargetModelObject+CoreDataClass.swift in Sources */,
 				BF3DCFEE273996060044FB1F /* EnvInteractors.swift in Sources */,
 				BF3DCFB3273993D60044FB1F /* Interactors.swift in Sources */,
+				BF374442274157A80008673A /* BackgroundView.swift in Sources */,
 				BFFB84AF273AB15B00FA4E5E /* TargetsScreen.swift in Sources */,
 				BF3DCFBE273994430044FB1F /* APICall.swift in Sources */,
 				BFA06B7F2740E2E80088D08D /* OffsetPageTabView.swift in Sources */,

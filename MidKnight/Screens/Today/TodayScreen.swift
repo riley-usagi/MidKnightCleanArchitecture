@@ -22,6 +22,7 @@ struct TodayScreen: View {
   
   var body: some View {
     content
+      .edgesIgnoringSafeArea(.bottom)
       .onReceive(todayCashUpdate) { _ in
         DispatchQueue.main.async {
           withAnimation(.spring()) {

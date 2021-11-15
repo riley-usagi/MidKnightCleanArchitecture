@@ -1,3 +1,4 @@
+import Combine
 import SwiftUI
 
 struct SettingsScreen: View {
@@ -6,8 +7,13 @@ struct SettingsScreen: View {
   
   @State private var totalCash: Loadable<Int>
   
+  @State var settingsScreenPayDay: Date = Date()
+  
   var body: some View {
     content
+      .onReceive(payDayUpdate) { newValue in
+        settingsScreenPayDay = newValue
+      }
   }
   
   init(_ totalCash: Loadable<Int> = .notRequested) {
@@ -37,5 +43,11 @@ private extension SettingsScreen {
       .onAppear {
         container.interactors.settingsInteractor.loadTotalCash($totalCash)
       }
+  }
+}
+
+extension SettingsScreen {
+  var payDayUpdate: AnyPublisher<Date, Never> {
+    container.appState.updates(for: \.userData.payDay)
   }
 }

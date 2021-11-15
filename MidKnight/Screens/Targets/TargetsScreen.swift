@@ -43,5 +43,7 @@ extension TargetsScreen {
 extension TargetsScreen {
   private func loadedView(_ targets: LazyList<Target>) -> some View {
     Text("Loaded")
+      .font(.largeTitle.bold())
+      .foregroundColor(.white)
   }
 }

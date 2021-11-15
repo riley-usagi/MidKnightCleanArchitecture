@@ -3,78 +3,80 @@ import SwiftUI
 extension TodayScreen {
   
   func loadedView(_ todayCash: Int) -> some View {
-    ZStack {
-      Color.black
-        .edgesIgnoringSafeArea(.all)
+    
+    VStack(spacing: 0) {
       
-      VStack(spacing: 0) {
-        
-        HStack {
-          Text("\(todayCash) на сегодня")
-            .font(.largeTitle)
+      CustomStackView {
+        Label {
+          Text("На сегодня")
+            .foregroundColor(.white)
+        } icon: {
+          Image(systemName: "rublesign.circle")
+        }
+        .foregroundColor(.white)
+      } contentView: {
+        HStack(spacing: 0) {
+          Text(String(todayCash) + " ₽")
+            .font(.title.bold())
+            .font(.system(size: 24))
             .foregroundColor(.white)
           
           Spacer()
-          
-          Button {
-            container.appState.value.currentPage = .settings
-          } label: {
-            Image(systemName: "gearshape.fill")
-              .resizable()
-              .frame(width: 30, height: 30)
-              .foregroundColor(.white)
-          }
-          .buttonStyle(DefaultButtonStyle())
-          
         }
-        .padding()
-        
-        Divider().background(Color.white)
-        
-        VStack(spacing: 0) {
-          HStack {
-            Text(calculatedValue)
-              .bold()
-              .font(.system(size: 72))
-              .foregroundColor(.white)
-            
-            Spacer()
-          }
-          .padding()
-          
-          Spacer()
-          
-          Text("Здесь я предлагаю добавить умные советы по экономии денег. Записать 10 советов и включить их рандомное появление при переходе на экран.")
-            .font(.system(size: 20))
-            .foregroundColor(.white)
-          
-          Divider().background(Color.white)
-          
-          ForEach(buttons, id: \.self) { row in
-            
-            HStack(spacing: 0) {
-              ForEach(row, id: \.self) { item in
-                Button {
-                  self.didTap(button: item)
-                } label: {
-                  Text(item.rawValue)
-                    .font(.system(size: 16))
-                    .frame(
-                      width: self.buttonWidth(item: item),
-                      height: self.buttonHeight()
-                    )
-                    .background(item.buttonColor)
-                    .foregroundColor(.black)
-                  //                    .cornerRadius(self.buttonWidth(item: item) / 2)
-                }
-                .border(Color.gray, width: 0.5)
-              }
-            }
-          }
-        }
-        .padding(.bottom, 3)
       }
+      .padding(.top)
+      
+      
+      CustomStackView {
+        Label {
+          Text("Потратить")
+            .foregroundColor(.white)
+        } icon: {
+          Image(systemName: "rublesign.circle")
+        }
+        .foregroundColor(.white)
+        
+      } contentView: {
+        HStack(spacing: 0) {
+          Text(calculatedValue + " ₽")
+            .bold()
+            .font(.system(size: 72))
+            .foregroundColor(.white)
+          
+          Spacer()
+        }
+      }
+      .padding(.top)
+      
+      Spacer()
+      
+      
+      // MARK: - Calculator
+      
+      ForEach(buttons, id: \.self) { row in
+        
+        HStack(spacing: 0) {
+          ForEach(row, id: \.self) { item in
+            Button {
+              self.didTap(button: item)
+            } label: {
+              Text(item.rawValue)
+                .font(.title3.bold())
+                .frame(
+                  width: self.buttonWidth(item: item),
+                  height: self.buttonHeight()
+                )
+                .background(item.buttonColor)
+                .foregroundColor(.black.opacity(0.7))
+            }
+            .border(Color.gray.opacity(0.1), width: 0.5)
+          }
+        }
+        .ignoresSafeArea()
+      }
+      
     }
+    .padding()
   }
 }
 
