@@ -15,7 +15,8 @@ struct TargetsScreen: View {
   var body: some View {
     content
       .sheet(isPresented: $newTargetScreenStatus, onDismiss: nil) {
-        NewTargetScreen()
+        NewTargetScreen($targets)
+          .inject(container)
           .background(BackgroundClearView())
       }
   }

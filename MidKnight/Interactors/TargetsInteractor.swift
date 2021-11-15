@@ -3,7 +3,7 @@ import SwiftUI
 
 protocol TargetsInteractor {
   func loadTargets(_ targets: LoadableSubject<LazyList<Target>>)
-  func createtarget(_ name: String, _ currentAmount: Int?, _ totalAmount: Int?)
+  func createtarget(_ name: String, _ currentAmount: Int?, _ totalAmount: Int?, completion: @escaping (Result<Void, Error>) -> Void)
 }
 
 struct RealTargetsInteractor: TargetsInteractor {
@@ -31,13 +31,17 @@ struct RealTargetsInteractor: TargetsInteractor {
       .store(in: cancelBag)
   }
   
-  func createtarget(_ name: String, _ currentAmount: Int?, _ totalAmount: Int?) {
+  func createtarget(_ name: String, _ currentAmount: Int?, _ totalAmount: Int?, completion: @escaping (Result<Void, Error>) -> Void) {
     dbService
       .createTarget(name, currentAmount!, totalAmount!)
+      .sinkToResult { _ in
+        completion(.success(()))
+      }
+      .store(in: cancelBag)
   }
 }
 
 struct StubTargetsInteractor: TargetsInteractor {
   func loadTargets(_ targets: LoadableSubject<LazyList<Target>>) {}
-  func createtarget(_ name: String, _ currentAmount: Int?, _ totalAmount: Int?) {}
+  func createtarget(_ name: String, _ currentAmount: Int?, _ totalAmount: Int?, completion: @escaping (Result<Void, Error>) -> Void) {}
 }

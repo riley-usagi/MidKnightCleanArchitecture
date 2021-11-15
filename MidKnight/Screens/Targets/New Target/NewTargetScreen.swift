@@ -9,11 +9,19 @@ struct NewTargetScreen: View {
     case name, currentAmount, totalAmount
   }
   
+  @Environment(\.presentationMode) var presentation
+  
   @FocusState private var focusedField: NewTargetFormField?
   
   @State private var name: String = ""
   @State private var currentAmount: Int?
   @State private var totalAmount: Int?
+  
+  @State var targets: LoadableSubject<LazyList<Target>>
+  
+  init(_ targets: LoadableSubject<LazyList<Target>>) {
+    self._targets = .init(wrappedValue: targets)
+  }
   
   var body: some View {
     VStack {
@@ -59,7 +67,10 @@ struct NewTargetScreen: View {
       Spacer()
       
       Button {
-        container.interactors.targetsInteractor.createtarget(name, currentAmount, totalAmount)
+        container.interactors.targetsInteractor.createtarget(name, currentAmount, totalAmount) { result in
+          container.interactors.targetsInteractor.loadTargets($targets.wrappedValue)
+          self.presentation.wrappedValue.dismiss()
+        }
       } label: {
         Text("Создать")
       }

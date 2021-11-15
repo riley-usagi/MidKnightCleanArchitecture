@@ -5,13 +5,6 @@ extension SettingsScreen {
     
     VStack {
       
-      VStack(alignment: .center, spacing: 5) {
-        Text("Настройки")
-          .font(.largeTitle.bold())
-          .foregroundColor(.white)
-          .shadow(radius: 5)
-      }
-      
       VStack(spacing: 8) {
         
         CustomStackView {
@@ -40,6 +33,8 @@ extension SettingsScreen {
           .padding()
         }
         
+        Spacer()
+        
         CustomStackView {
           Label {
             Text("Дата пополнения")
@@ -50,6 +45,8 @@ extension SettingsScreen {
         } contentView: {
           PayDayPickerView(payDay: .notRequested, totalCash: totalCash)
         }
+        
+        Spacer()
         
         CustomStackView {
           Label {
@@ -72,11 +69,9 @@ extension SettingsScreen {
         }
 
       }
-      
-      Spacer()
-      
     }
-    .padding(.top, 25)
-    .padding([.horizontal, .bottom])
+    .padding()
+    .padding(.top)
+//    .padding(.horizontal)
   }
 }

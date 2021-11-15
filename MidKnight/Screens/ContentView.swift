@@ -9,13 +9,12 @@ struct ContentView: View {
   
   @State var offset: CGFloat = 0
   
-  @State var newDayStatus: Bool = true
+  @State var newDayStatus: Bool = false
   
   var screens = [
     AnyView(TargetsScreen()),
     AnyView(TodayScreen()),
     AnyView(SettingsScreen()),
-//    AnyView(Text("History").font(.largeTitle.bold()).foregroundColor(.white))
   ]
   
   init(_ container: Container, _ screenSize: CGSize) {
