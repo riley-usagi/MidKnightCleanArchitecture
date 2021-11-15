@@ -19,6 +19,7 @@ extension TargetsScreen {
             Text(String(target.currentAmount))
           }
         }
+        .padding(.bottom, 90)
       }
       
       VStack {
