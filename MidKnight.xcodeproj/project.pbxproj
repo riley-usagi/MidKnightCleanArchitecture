@@ -10,6 +10,8 @@
 		BF15514A273AE8080027FE83 /* TodayInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF155149273AE8080027FE83 /* TodayInteractor.swift */; };
 		BF35821F27422C2900F8CBCE /* TargetsLoaded.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF35821E27422C2900F8CBCE /* TargetsLoaded.swift */; };
 		BF358223274237BB00F8CBCE /* NewTargetScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF358222274237BB00F8CBCE /* NewTargetScreen.swift */; };
+		BF358226274244D600F8CBCE /* NewDayScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF358225274244D600F8CBCE /* NewDayScreen.swift */; };
+		BF3582292742494200F8CBCE /* NewDayLoaded.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3582282742494200F8CBCE /* NewDayLoaded.swift */; };
 		BF374442274157A80008673A /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF374441274157A80008673A /* BackgroundView.swift */; };
 		BF3744442741653D0008673A /* CustomStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3744432741653D0008673A /* CustomStackView.swift */; };
 		BF374446274166CD0008673A /* CustomCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF374445274166CD0008673A /* CustomCorner.swift */; };
@@ -71,6 +73,8 @@
 		BF155149273AE8080027FE83 /* TodayInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayInteractor.swift; sourceTree = "<group>"; };
 		BF35821E27422C2900F8CBCE /* TargetsLoaded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetsLoaded.swift; sourceTree = "<group>"; };
 		BF358222274237BB00F8CBCE /* NewTargetScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTargetScreen.swift; sourceTree = "<group>"; };
+		BF358225274244D600F8CBCE /* NewDayScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDayScreen.swift; sourceTree = "<group>"; };
+		BF3582282742494200F8CBCE /* NewDayLoaded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDayLoaded.swift; sourceTree = "<group>"; };
 		BF374441274157A80008673A /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 		BF3744432741653D0008673A /* CustomStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStackView.swift; sourceTree = "<group>"; };
 		BF374445274166CD0008673A /* CustomCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCorner.swift; sourceTree = "<group>"; };
@@ -166,6 +170,23 @@
 			path = "New Target";
 			sourceTree = "<group>";
 		};
+		BF358224274244C700F8CBCE /* NewDay */ = {
+			isa = PBXGroup;
+			children = (
+				BF3582272742493100F8CBCE /* States */,
+				BF358225274244D600F8CBCE /* NewDayScreen.swift */,
+			);
+			path = NewDay;
+			sourceTree = "<group>";
+		};
+		BF3582272742493100F8CBCE /* States */ = {
+			isa = PBXGroup;
+			children = (
+				BF3582282742494200F8CBCE /* NewDayLoaded.swift */,
+			);
+			path = States;
+			sourceTree = "<group>";
+		};
 		BF3744402741579E0008673A /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -199,6 +220,7 @@
 		BF3DCFAB273990000044FB1F /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				BF358224274244C700F8CBCE /* NewDay */,
 				BF3744402741579E0008673A /* Common */,
 				BF6FE34F27398DE100891498 /* ContentView.swift */,
 				BF3DCFF72739990B0044FB1F /* Loading */,
@@ -539,6 +561,7 @@
 				BF74457D273BC1720075EA60 /* SettingsLoaded.swift in Sources */,
 				BF3DCFBF273994430044FB1F /* CancelBag.swift in Sources */,
 				BF3DCFC92739947E0044FB1F /* LazyList.swift in Sources */,
+				BF358226274244D600F8CBCE /* NewDayScreen.swift in Sources */,
 				BF3DCFDF273994CF0044FB1F /* JustExtension.swift in Sources */,
 				BFFB84A3273A65D000FA4E5E /* SettingsScreen.swift in Sources */,
 				BF3DCFF6273998360044FB1F /* Routes.swift in Sources */,
@@ -576,6 +599,7 @@
 				BF374442274157A80008673A /* BackgroundView.swift in Sources */,
 				BFFB84AF273AB15B00FA4E5E /* TargetsScreen.swift in Sources */,
 				BF3DCFBE273994430044FB1F /* APICall.swift in Sources */,
+				BF3582292742494200F8CBCE /* NewDayLoaded.swift in Sources */,
 				BF358223274237BB00F8CBCE /* NewTargetScreen.swift in Sources */,
 				BFA06B7F2740E2E80088D08D /* OffsetPageTabView.swift in Sources */,
 				BF3DCFC1273994430044FB1F /* WebService.swift in Sources */,

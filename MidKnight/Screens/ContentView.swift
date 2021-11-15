@@ -9,6 +9,8 @@ struct ContentView: View {
   
   @State var offset: CGFloat = 0
   
+  @State var newDayStatus: Bool = true
+  
   var screens = [
     AnyView(TargetsScreen()),
     AnyView(TodayScreen()),
@@ -80,7 +82,12 @@ struct ContentView: View {
       }
     }
     .ignoresSafeArea()
-//    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+    .sheet(isPresented: $newDayStatus, onDismiss: nil) {
+      NewDayScreen()
+        .background(BackgroundClearView())
+//        .interactiveDismissDisabled(true)
+        .inject(container)
+    }
   }
 }
 
