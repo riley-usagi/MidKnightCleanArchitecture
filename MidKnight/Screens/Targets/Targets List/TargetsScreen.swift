@@ -6,12 +6,18 @@ struct TargetsScreen: View {
   
   @State private var targets: Loadable<LazyList<Target>>
   
+  @State var newTargetScreenStatus: Bool = false
+  
   init(targets: Loadable<LazyList<Target>> = .notRequested) {
     self._targets = .init(initialValue: targets)
   }
   
   var body: some View {
     content
+      .sheet(isPresented: $newTargetScreenStatus, onDismiss: nil) {
+        NewTargetScreen()
+          .background(BackgroundClearView())
+      }
   }
 }
 
@@ -40,10 +46,16 @@ extension TargetsScreen {
   }
 }
 
-extension TargetsScreen {
-  private func loadedView(_ targets: LazyList<Target>) -> some View {
-    Text("Loaded")
-      .font(.largeTitle.bold())
-      .foregroundColor(.white)
+struct BackgroundClearView: UIViewRepresentable {
+  func makeUIView(context: Context) -> UIView {
+    let view = UIView()
+    
+    DispatchQueue.main.async {
+      view.superview?.superview?.backgroundColor = .gray.withAlphaComponent(0.95)
+    }
+    
+    return view
   }
+  
+  func updateUIView(_ uiView: UIView, context: Context) {}
 }

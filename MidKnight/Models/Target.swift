@@ -21,7 +21,7 @@ extension Target {
   }
   
   @discardableResult
-  func modelToObjectWithin(_ context: NSManagedObjectContext) -> TargetModelObject? {
+  func store(_ context: NSManagedObjectContext) -> TargetModelObject? {
     guard let target = TargetModelObject.insertNew(in: context) else { return nil }
     
     target.name           = name
@@ -31,3 +31,19 @@ extension Target {
     return target
   }
 }
+//
+//extension Target {
+//  
+//  @discardableResult func store(in context: NSManagedObjectContext) -> TargetModelObject? {
+//    
+////    guard let details = InventoryItemModelObject.insertNew(in: context) else { return nil }
+//    
+//    guard let details
+//    
+//    details.ingameid  = Int32(ingameid)
+//    details.itemCount = Int32(itemCount)
+//    details.itemType  = Int32(itemType)
+//    
+//    return details
+//  }
+//}

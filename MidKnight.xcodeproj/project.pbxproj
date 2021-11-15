@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		BF15514A273AE8080027FE83 /* TodayInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF155149273AE8080027FE83 /* TodayInteractor.swift */; };
+		BF35821F27422C2900F8CBCE /* TargetsLoaded.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF35821E27422C2900F8CBCE /* TargetsLoaded.swift */; };
+		BF358223274237BB00F8CBCE /* NewTargetScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF358222274237BB00F8CBCE /* NewTargetScreen.swift */; };
 		BF374442274157A80008673A /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF374441274157A80008673A /* BackgroundView.swift */; };
 		BF3744442741653D0008673A /* CustomStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3744432741653D0008673A /* CustomStackView.swift */; };
 		BF374446274166CD0008673A /* CustomCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF374445274166CD0008673A /* CustomCorner.swift */; };
@@ -67,6 +69,8 @@
 
 /* Begin PBXFileReference section */
 		BF155149273AE8080027FE83 /* TodayInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayInteractor.swift; sourceTree = "<group>"; };
+		BF35821E27422C2900F8CBCE /* TargetsLoaded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetsLoaded.swift; sourceTree = "<group>"; };
+		BF358222274237BB00F8CBCE /* NewTargetScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTargetScreen.swift; sourceTree = "<group>"; };
 		BF374441274157A80008673A /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 		BF3744432741653D0008673A /* CustomStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStackView.swift; sourceTree = "<group>"; };
 		BF374445274166CD0008673A /* CustomCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCorner.swift; sourceTree = "<group>"; };
@@ -137,6 +141,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BF35821D27422C1000F8CBCE /* States */ = {
+			isa = PBXGroup;
+			children = (
+				BF35821E27422C2900F8CBCE /* TargetsLoaded.swift */,
+			);
+			path = States;
+			sourceTree = "<group>";
+		};
+		BF3582202742379500F8CBCE /* Targets List */ = {
+			isa = PBXGroup;
+			children = (
+				BFFB84AE273AB15B00FA4E5E /* TargetsScreen.swift */,
+				BF35821D27422C1000F8CBCE /* States */,
+			);
+			path = "Targets List";
+			sourceTree = "<group>";
+		};
+		BF3582212742379E00F8CBCE /* New Target */ = {
+			isa = PBXGroup;
+			children = (
+				BF358222274237BB00F8CBCE /* NewTargetScreen.swift */,
+			);
+			path = "New Target";
+			sourceTree = "<group>";
+		};
 		BF3744402741579E0008673A /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -387,7 +416,8 @@
 		BFFB84AD273AB14500FA4E5E /* Targets */ = {
 			isa = PBXGroup;
 			children = (
-				BFFB84AE273AB15B00FA4E5E /* TargetsScreen.swift */,
+				BF3582212742379E00F8CBCE /* New Target */,
+				BF3582202742379500F8CBCE /* Targets List */,
 			);
 			path = Targets;
 			sourceTree = "<group>";
@@ -501,6 +531,7 @@
 				BF3DCFE1273994CF0044FB1F /* NSSetExtension.swift in Sources */,
 				BF6FE35027398DE100891498 /* ContentView.swift in Sources */,
 				BF374446274166CD0008673A /* CustomCorner.swift in Sources */,
+				BF35821F27422C2900F8CBCE /* TargetsLoaded.swift in Sources */,
 				BF3DCFC7273994720044FB1F /* LazyListCache.swift in Sources */,
 				BF3DCFB72739941C0044FB1F /* Container.swift in Sources */,
 				BF3DCFC0273994430044FB1F /* Loadable.swift in Sources */,
@@ -545,6 +576,7 @@
 				BF374442274157A80008673A /* BackgroundView.swift in Sources */,
 				BFFB84AF273AB15B00FA4E5E /* TargetsScreen.swift in Sources */,
 				BF3DCFBE273994430044FB1F /* APICall.swift in Sources */,
+				BF358223274237BB00F8CBCE /* NewTargetScreen.swift in Sources */,
 				BFA06B7F2740E2E80088D08D /* OffsetPageTabView.swift in Sources */,
 				BF3DCFC1273994430044FB1F /* WebService.swift in Sources */,
 				BF3DCFB02739928E0044FB1F /* AppEnvironment.swift in Sources */,

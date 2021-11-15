@@ -3,6 +3,7 @@ import SwiftUI
 
 protocol TargetsInteractor {
   func loadTargets(_ targets: LoadableSubject<LazyList<Target>>)
+  func createtarget(_ name: String, _ currentAmount: Int?, _ totalAmount: Int?)
 }
 
 struct RealTargetsInteractor: TargetsInteractor {
@@ -29,8 +30,14 @@ struct RealTargetsInteractor: TargetsInteractor {
       }
       .store(in: cancelBag)
   }
+  
+  func createtarget(_ name: String, _ currentAmount: Int?, _ totalAmount: Int?) {
+    dbService
+      .createTarget(name, currentAmount!, totalAmount!)
+  }
 }
 
 struct StubTargetsInteractor: TargetsInteractor {
   func loadTargets(_ targets: LoadableSubject<LazyList<Target>>) {}
+  func createtarget(_ name: String, _ currentAmount: Int?, _ totalAmount: Int?) {}
 }
