@@ -10,10 +10,10 @@ struct ContentView: View {
   @State var offset: CGFloat = 0
   
   var screens = [
-    AnyView(TodayScreen()),
     AnyView(TargetsScreen()),
+    AnyView(TodayScreen()),
     AnyView(SettingsScreen()),
-    AnyView(Text("History").font(.largeTitle.bold()).foregroundColor(.white))
+//    AnyView(Text("History").font(.largeTitle.bold()).foregroundColor(.white))
   ]
   
   init(_ container: Container, _ screenSize: CGSize) {
@@ -33,16 +33,13 @@ struct ContentView: View {
 
         HStack(spacing: 0) {
 
-
-          ForEach(0...3, id: \.self) { index in
+          ForEach(0...2, id: \.self) { index in
 
             VStack(spacing: 0) {
               screens[index]
                 .inject(container)
             }
-//            .padding()
             .frame(width: screenSize.width)
-
           }
         }
 

@@ -3,6 +3,7 @@ import CoreData
 
 protocol TargetsDBService {
   func loadTargets() -> AnyPublisher<LazyList<Target>, Error>
+  func createTarget(_ name: String, _ currentAmount: Int, _ totalAmount: Int)
 }
 
 struct RealTargetsDBService: TargetsDBService {
@@ -23,4 +24,18 @@ struct RealTargetsDBService: TargetsDBService {
       .eraseToAnyPublisher()
   }
   
+  func createTarget(_ name: String, _ currentAmount: Int, _ totalAmount: Int) {
+    let cancelBag = CancelBag()
+    
+    persistentStore
+      .update { context in
+        
+        let newTargetModelObject =
+        Target(name: name, currentAmount: Int32(currentAmount), totalAmount: Int32(totalAmount))
+        
+        newTargetModelObject.store(context)
+      }
+      .sinkToResult { _ in }
+      .store(in: cancelBag)
+  }
 }
