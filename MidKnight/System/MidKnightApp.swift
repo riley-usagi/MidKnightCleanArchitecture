@@ -9,8 +9,9 @@ import SwiftUI
     WindowGroup {
       
       GeometryReader { reader in
+        
         ContentView(environment.container, reader.size)
-          .preferredColorScheme(.dark)
+          .preferredColorScheme(.light)
       }
     }
   }

@@ -10,9 +10,10 @@ struct ContentView: View {
   @State var offset: CGFloat = 0
   
   var screens = [
-    AnyView(TargetsScreen()),
     AnyView(TodayScreen()),
-    AnyView(SettingsScreen())
+    AnyView(TargetsScreen()),
+    AnyView(SettingsScreen()),
+    AnyView(Text("History").font(.largeTitle.bold()).foregroundColor(.white))
   ]
   
   init(_ container: Container, _ screenSize: CGSize) {
@@ -21,65 +22,68 @@ struct ContentView: View {
   }
   
   var body: some View {
+    
     ZStack {
+      
+      BackgroundView()
       
       // MARK: - Content
       
       OffsetPageTabView(offset: $offset) {
-        
+
         HStack(spacing: 0) {
-          
-          
-          ForEach(0...2, id: \.self) { index in
-            
+
+
+          ForEach(0...3, id: \.self) { index in
+
             VStack(spacing: 0) {
               screens[index]
                 .inject(container)
             }
-            .padding()
+//            .padding()
             .frame(width: screenSize.width)
-            
+
           }
         }
-        
+
       }
       
       
       // MARK: - Pagination
       
       VStack(spacing: 0) {
-        
+
         HStack {
-          
+
           HStack(spacing: 12) {
-            
+
             ForEach(screens.indices, id: \.self) { index in
               Capsule()
                 .fill(.white)
                 .frame(width: getIndex() == index ? 20 : 7, height: 7)
-              
+
             }
-            
+
           }
           .overlay(
-            
+
             Capsule()
               .fill(.white)
               .frame(width: 20, height: 7)
               .offset(x: getIndicatorOffset())
-            
+
             , alignment: .leading
           )
           .offset(x: 10, y: -15)
         }
         .padding()
-        .offset(y: 20)
-        
+        .offset(y: 60)
+
         Spacer()
       }
     }
-    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-    .animation(.easeInOut, value: getIndex())
+    .ignoresSafeArea()
+//    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
   }
 }
 
