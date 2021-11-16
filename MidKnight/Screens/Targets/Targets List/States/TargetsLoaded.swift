@@ -18,6 +18,15 @@ extension TargetsScreen {
           } contentView: {
             Text(String(target.currentAmount))
           }
+          .contextMenu {
+            Button {
+              container.interactors.targetsInteractor.removeTarget(target.id)
+              container.interactors.targetsInteractor.loadTargets($targets)
+            } label: {
+              Text("Удалить")
+            }
+
+          }
         }
         .padding(.bottom, 90)
       }

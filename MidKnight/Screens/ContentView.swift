@@ -12,8 +12,8 @@ struct ContentView: View {
   @State var newDayStatus: Bool = false
   
   var screens = [
-    AnyView(TargetsScreen()),
     AnyView(TodayScreen()),
+    AnyView(TargetsScreen()),
     AnyView(SettingsScreen()),
   ]
   

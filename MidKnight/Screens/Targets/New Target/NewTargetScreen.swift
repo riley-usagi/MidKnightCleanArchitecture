@@ -67,7 +67,7 @@ struct NewTargetScreen: View {
       Spacer()
       
       Button {
-        container.interactors.targetsInteractor.createtarget(name, currentAmount, totalAmount) { result in
+        container.interactors.targetsInteractor.createTarget(name, currentAmount, totalAmount) { result in
           container.interactors.targetsInteractor.loadTargets($targets.wrappedValue)
           self.presentation.wrappedValue.dismiss()
         }
