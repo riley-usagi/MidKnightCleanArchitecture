@@ -3,7 +3,10 @@ import SwiftUI
 
 protocol TargetsInteractor {
   func loadTargets(_ targets: LoadableSubject<LazyList<Target>>)
-  func createtarget(_ name: String, _ currentAmount: Int?, _ totalAmount: Int?, completion: @escaping (Result<Void, Error>) -> Void)
+  
+  func createTarget(_ name: String, _ currentAmount: Int?, _ totalAmount: Int?, completion: @escaping (Result<Void, Error>) -> Void)
+  
+  func removeTarget(_ id: String)
 }
 
 struct RealTargetsInteractor: TargetsInteractor {
@@ -31,7 +34,7 @@ struct RealTargetsInteractor: TargetsInteractor {
       .store(in: cancelBag)
   }
   
-  func createtarget(_ name: String, _ currentAmount: Int?, _ totalAmount: Int?, completion: @escaping (Result<Void, Error>) -> Void) {
+  func createTarget(_ name: String, _ currentAmount: Int?, _ totalAmount: Int?, completion: @escaping (Result<Void, Error>) -> Void) {
     dbService
       .createTarget(name, currentAmount!, totalAmount!)
       .sinkToResult { _ in
@@ -39,9 +42,18 @@ struct RealTargetsInteractor: TargetsInteractor {
       }
       .store(in: cancelBag)
   }
+  
+  func removeTarget(_ id: String) {
+    dbService
+      .removeTarget(id)
+      .sinkToResult { _ in }
+      .store(in: cancelBag)
+  }
 }
 
 struct StubTargetsInteractor: TargetsInteractor {
   func loadTargets(_ targets: LoadableSubject<LazyList<Target>>) {}
-  func createtarget(_ name: String, _ currentAmount: Int?, _ totalAmount: Int?, completion: @escaping (Result<Void, Error>) -> Void) {}
+  func createTarget(_ name: String, _ currentAmount: Int?, _ totalAmount: Int?, completion: @escaping (Result<Void, Error>) -> Void) {}
+  
+  func removeTarget(_ id: String) {}
 }

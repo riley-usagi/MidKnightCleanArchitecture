@@ -4,7 +4,7 @@ struct TargetsScreen: View {
   
   @Environment(\.container) var container: Container
   
-  @State private var targets: Loadable<LazyList<Target>>
+  @State var targets: Loadable<LazyList<Target>>
   
   @State var newTargetScreenStatus: Bool = false
   

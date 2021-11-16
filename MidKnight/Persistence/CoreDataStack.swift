@@ -18,6 +18,8 @@ protocol PersistentStore {
   /// Процесс обновления данных в CoreData
   /// - Parameter operation: Контекст с операцией обновления
   func update<Result>(_ operation: @escaping DBOperation<Result>) -> AnyPublisher<Result, Error>
+  
+  func delete<T>(_ fetchRequest: NSFetchRequest<T>) -> AnyPublisher<Void, Error>
 }
 
 struct CoreDataStack: PersistentStore {
@@ -80,6 +82,33 @@ struct CoreDataStack: PersistentStore {
           do {
             let count = try container?.viewContext.count(for: fetchRequest) ?? 0
             promise(.success(count))
+          } catch {
+            promise(.failure(error))
+          }
+        }
+      }
+      .eraseToAnyPublisher()
+  }
+  
+  func delete<T>(_ fetchRequest: NSFetchRequest<T>) -> AnyPublisher<Void, Error> {
+    
+    return onStoreIsReady
+      .flatMap { [weak container] in
+        Future<Void, Error> { promise in
+          do {
+            let objects = try container?.viewContext.fetch(fetchRequest)
+            
+            if let mo = objects![0] as? NSManagedObject {
+              // Turning object into a fault
+              container?.viewContext.refresh(mo, mergeChanges: false)
+              
+              container?.viewContext.delete(mo)
+              
+              try container?.viewContext.save()
+              
+            }
+            
+            promise(.success(()))
           } catch {
             promise(.failure(error))
           }
