@@ -17,8 +17,7 @@ extension TodayScreen {
       } contentView: {
         HStack(spacing: 0) {
           Text(String(todayCash) + " ₽")
-            .font(.title.bold())
-            .font(.system(size: 24))
+            .font(.system(size: 72).bold())
             .foregroundColor(.white)
           
           Spacer()
@@ -38,12 +37,11 @@ extension TodayScreen {
         
       } contentView: {
         HStack(spacing: 0) {
-          Text(calculatedValue + " ₽")
-            .bold()
-            .font(.system(size: 72))
-            .foregroundColor(.white)
-          
           Spacer()
+
+          Text(calculatedValue + " ₽")
+            .font(.system(size: 46).bold())
+            .foregroundColor(.white)          
         }
       }
       .padding(.top)
@@ -66,9 +64,9 @@ extension TodayScreen {
                   width: self.buttonWidth(item: item),
                   height: self.buttonHeight()
                 )
-                .background(item.buttonColor)
-                .foregroundColor(.black.opacity(0.7))
+                .foregroundColor(.black)
             }
+            .background(item.buttonColor)
             .border(Color.gray.opacity(0.1), width: 0.5)
           }
         }
@@ -109,23 +107,36 @@ enum CalculatorButton: String {
 }
 
 extension TodayScreen {
+  
   func didTap(button: CalculatorButton) {
     switch button {
+      
     case .clear:
       if calculatedValue.count == 1 {
         calculatedValue = "0"
       } else {
         calculatedValue = String(calculatedValue.dropLast())
       }
-    case .enter:
+      
+    case .enter, .emptyEnter:
+      
       container.interactors.todayInteractor.updateCash($calculatedValue)
+      
       self.calculatedValue = "0"
+      
+    case .zero, .emptyZero:
+      if self.calculatedValue == "0" {
+        break
+      } else {
+        self.calculatedValue = "\(self.calculatedValue)0"
+      }
+      
     default:
       let number = button.rawValue
+      
       if self.calculatedValue == "0" {
         calculatedValue = number
-      }
-      else {
+      } else {
         self.calculatedValue = "\(self.calculatedValue)\(number)"
       }
     }
@@ -136,6 +147,6 @@ extension TodayScreen {
   }
   
   func buttonHeight() -> CGFloat {
-    return (UIScreen.main.bounds.width - (5*12)) / 4
+    return (UIScreen.main.bounds.width - (5 * 12)) / 4
   }
 }

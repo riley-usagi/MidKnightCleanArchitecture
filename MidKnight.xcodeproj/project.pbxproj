@@ -51,6 +51,7 @@
 		BF6FE35027398DE100891498 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6FE34F27398DE100891498 /* ContentView.swift */; };
 		BF6FE35227398DE300891498 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF6FE35127398DE300891498 /* Assets.xcassets */; };
 		BF6FE35527398DE300891498 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF6FE35427398DE300891498 /* Preview Assets.xcassets */; };
+		BF7354982743ED4F001DF811 /* NewDayInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7354972743ED4F001DF811 /* NewDayInteractor.swift */; };
 		BF744578273BB3C30075EA60 /* TodayLoaded.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF744577273BB3C30075EA60 /* TodayLoaded.swift */; };
 		BF74457A273BC00A0075EA60 /* SettingsInterctor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF744579273BC00A0075EA60 /* SettingsInterctor.swift */; };
 		BF74457D273BC1720075EA60 /* SettingsLoaded.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF74457C273BC1720075EA60 /* SettingsLoaded.swift */; };
@@ -116,6 +117,7 @@
 		BF6FE34F27398DE100891498 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		BF6FE35127398DE300891498 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BF6FE35427398DE300891498 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		BF7354972743ED4F001DF811 /* NewDayInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDayInteractor.swift; sourceTree = "<group>"; };
 		BF744577273BB3C30075EA60 /* TodayLoaded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayLoaded.swift; sourceTree = "<group>"; };
 		BF744579273BC00A0075EA60 /* SettingsInterctor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsInterctor.swift; sourceTree = "<group>"; };
 		BF74457C273BC1720075EA60 /* SettingsLoaded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLoaded.swift; sourceTree = "<group>"; };
@@ -334,6 +336,7 @@
 		BF3DCFF4273997BF0044FB1F /* Interactors */ = {
 			isa = PBXGroup;
 			children = (
+				BF7354972743ED4F001DF811 /* NewDayInteractor.swift */,
 				BF744579273BC00A0075EA60 /* SettingsInterctor.swift */,
 				BFFB84B2273AB40300FA4E5E /* TargetsInteractor.swift */,
 				BF155149273AE8080027FE83 /* TodayInteractor.swift */,
@@ -583,6 +586,7 @@
 				BF3DCFE8273994CF0044FB1F /* ResultExtension.swift in Sources */,
 				BFFB84B1273AB1A900FA4E5E /* Target.swift in Sources */,
 				BF3DCFE7273994CF0044FB1F /* ProcessInfoExtension.swift in Sources */,
+				BF7354982743ED4F001DF811 /* NewDayInteractor.swift in Sources */,
 				BF3744442741653D0008673A /* CustomStackView.swift in Sources */,
 				BF3DCFE6273994CF0044FB1F /* NSManagedObjectContextExtension.swift in Sources */,
 				BF6FE34E27398DE100891498 /* MidKnightApp.swift in Sources */,

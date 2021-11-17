@@ -13,6 +13,10 @@ extension AppEnvironment {
     
     let settingsInteractor = RealSettingsInteractor(appState)
     
-    return .init(targetsInteractor, todayInteractor, settingsInteractor)
+    let newDayInteractor = RealNewDayInteractor(appState)
+    
+    return .init(
+      targetsInteractor, todayInteractor, settingsInteractor, newDayInteractor
+    )
   }
 }

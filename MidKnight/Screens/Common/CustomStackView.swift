@@ -41,6 +41,7 @@ struct CustomStackView<Title: View, Content: View>: View {
         )
       )
     }
+    .foregroundColor(.white)
     .background(
       RoundedRectangle(cornerRadius: 12)
         .fill(.white)
