@@ -14,8 +14,8 @@ struct NewTargetScreen: View {
   @FocusState private var focusedField: NewTargetFormField?
   
   @State private var name: String = ""
-  @State private var currentAmount: Int?
-  @State private var totalAmount: Int?
+  @State private var currentAmount: Int = 0
+  @State private var totalAmount: Int = 0
   
   @State var targets: LoadableSubject<LazyList<Target>>
   
@@ -34,7 +34,11 @@ struct NewTargetScreen: View {
         }
         
       } contentView: {
-        TextField("Название цели", text: $name)
+        TextField("", text: $name)
+          .placeholder(when: name.isEmpty, placeholder: {
+            Text("Название цели")
+              .foregroundColor(.white)
+          })
           .focused($focusedField, equals: .name)
       }
       
@@ -46,9 +50,9 @@ struct NewTargetScreen: View {
         }
         
       } contentView: {
-        TextField("Итоговая сумма", value: $totalAmount, formatter: NumberFormatter(), prompt: nil)
+        TextField("", value: $totalAmount, formatter: NumberFormatter())
           .focused($focusedField, equals: .totalAmount)
-          .foregroundColor(.gray)
+          .keyboardType(.numberPad)
       }
       
       CustomStackView {
@@ -61,7 +65,7 @@ struct NewTargetScreen: View {
       } contentView: {
         TextField("Уже имею", value: $currentAmount, formatter: NumberFormatter(), prompt: nil)
           .focused($focusedField, equals: .currentAmount)
-          .foregroundColor(.gray)
+          .keyboardType(.numberPad)
       }
       
       Spacer()

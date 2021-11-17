@@ -5,6 +5,8 @@ extension TargetsScreen {
     
     ZStack {
       
+      if targets.count > 0 {
+      
       ScrollView(.vertical, showsIndicators: false) {
         
         ForEach(targets) { target in
@@ -29,6 +31,14 @@ extension TargetsScreen {
           }
         }
         .padding(.bottom, 90)
+      }
+        
+      } else {
+        
+        Text("Нет целей")
+          .font(.largeTitle.bold())
+          .foregroundColor(.white)
+        
       }
       
       VStack {

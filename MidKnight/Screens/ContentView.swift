@@ -12,9 +12,9 @@ struct ContentView: View {
   @State var newDayStatus: Bool = false
   
   var screens = [
-    AnyView(TodayScreen()),
+//    AnyView(TodayScreen()),
     AnyView(TargetsScreen()),
-    AnyView(SettingsScreen()),
+    AnyView(SettingsScreen())
   ]
   
   init(_ container: Container, _ screenSize: CGSize) {
@@ -34,7 +34,7 @@ struct ContentView: View {
 
         HStack(spacing: 0) {
 
-          ForEach(0...2, id: \.self) { index in
+          ForEach(0...1, id: \.self) { index in
 
             VStack(spacing: 0) {
               screens[index]

@@ -8,22 +8,27 @@ extension Container {
     
     let settingsInteractor: SettingsInteractor
     
+    let newDayInteractor: NewDayInteractor
+    
     static var stub: Self {
       .init(
         StubTargetsInteractor(),
         StubTodayInteractor(),
-        StubSettingsInteractor()
+        StubSettingsInteractor(),
+        StubNewDayInteractor()
       )
     }
     
     init(
       _ targetsInteractor: TargetsInteractor,
       _ todayInteractor: TodayInteractor,
-      _ settingsInteractor: SettingsInteractor
+      _ settingsInteractor: SettingsInteractor,
+      _ newDayInteractor: NewDayInteractor
     ) {
       self.targetsInteractor  = targetsInteractor
       self.todayInteractor    = todayInteractor
       self.settingsInteractor = settingsInteractor
+      self.newDayInteractor   = newDayInteractor
     }
   }
 }
