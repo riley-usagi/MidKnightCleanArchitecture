@@ -34,10 +34,14 @@ struct RealSettingsInteractor: SettingsInteractor {
     
     Just<Date>
       .withErrorType(appState[\.userData].payDay, Error.self)
+    
       .sinkToLoadable { loadedPayDayAsDate in
         payDay.wrappedValue = loadedPayDayAsDate
       }
       .store(in: cancelBag)
+    
+    
+    appState[\.userData.todayCash] = appState[\.userData.totalCash] / Date.daysBetweenPlusOne(Date(), appState[\.userData.payDay])
   }
   
   func updatePayDay(_ newPayDay: Date) {
@@ -49,7 +53,7 @@ struct RealSettingsInteractor: SettingsInteractor {
     var calculatedValue = String(label)
     
     switch button {
-      
+
     case .zero:
       
       if calculatedValue == "0" {
@@ -97,7 +101,7 @@ struct RealSettingsInteractor: SettingsInteractor {
       
       
       
-    case .emptyZero, .emptyEnter:
+    case .emptyZeroLeft, .emptyZeroRight, .emptyEnter:
       break
       
     default:

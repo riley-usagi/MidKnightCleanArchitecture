@@ -29,10 +29,9 @@ struct ContentView: View {
       Group {
         switch currentPage {
         case .loading:
-          ProgressView()
-            .onAppear {
-              container.appState[\.currentPage] = .today
-            }
+          LoadingScreen()
+        case .newDay:
+          NewDayScreen()
         case .today:
           TodayScreen()
         case .history:
@@ -40,9 +39,7 @@ struct ContentView: View {
         case .settings:
           SettingsScreen()
         case .targets:
-          Text("")
-        case .createTarget:
-          Text("")
+          TargetsScreen()
         }
       }
       .inject(container)

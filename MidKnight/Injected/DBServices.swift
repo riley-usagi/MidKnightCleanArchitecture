@@ -2,12 +2,10 @@ extension Container {
   
   struct DBServices {
     
-//    let targetsDBService: TargetsDBService
+    let targetsDBService: TargetsDBService
     
-    init(
-//      _ targetsDBService: TargetsDBService
-    ) {
-//      self.targetsDBService = targetsDBService
+    init(_ targetsDBService: TargetsDBService) {
+      self.targetsDBService = targetsDBService
     }
   }
 }

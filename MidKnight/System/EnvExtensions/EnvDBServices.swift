@@ -4,10 +4,8 @@ extension AppEnvironment {
     
     let persistentStore = CoreDataStack()
     
-//    let targetsDBService = RealTargetsDBService(persistentStore)
+    let targetsDBService = RealTargetsDBService(persistentStore)
     
-    return .init(
-//      targetsDBService
-    )
+    return .init(targetsDBService)
   }
 }

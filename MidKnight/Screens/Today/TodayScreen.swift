@@ -16,7 +16,7 @@ struct TodayScreen: View {
     [.seven, .eight, .nine, .clear],
     [.four, .five, .six, .emptyEnter],
     [.one, .two, .three, .enter],
-    [.emptyZero, .zero, .emptyZero, .emptyEnter]
+    [.emptyZeroLeft, .zero, .emptyZeroRight, .emptyEnter]
   ]
   
   init(_ todayCashLabel: Loadable<String> = .notRequested) {
@@ -68,13 +68,18 @@ private extension TodayScreen {
     VStack(spacing: 0) {
       
       
+      // MARK: - Menu
+      
       HStack(spacing: 0) {
         
         Button {
           container.appState[\.currentPage] = .targets
         } label: {
-          Text("Цели")
-            .font(.title3.bold())
+          HStack {
+            Image(systemName: "target")
+            Text("Цели")
+          }
+          .font(.title3.bold())
         }
         
         Spacer()
@@ -82,8 +87,11 @@ private extension TodayScreen {
         Button {
           container.appState[\.currentPage] = .settings
         } label: {
-          Text("Настройки")
-            .font(.title3.bold())
+          HStack {
+            Text("Настройки")
+            Image(systemName: "gear")
+          }
+          .font(.title3.bold())
         }
       }
       .foregroundColor(.white)
@@ -144,12 +152,13 @@ private extension TodayScreen {
               container.interactors.todayInteractor.numPadTapped(button, $todayCashLabel, cashLabel, $spendedCash, $todayWarningLabel, $spendedWarningLabel)
             } label: {
               Text(button.rawValue)
-                .font(.title3.bold())
+                .font(button.font)
+              
                 .frame(
                   width: self.buttonWidth(),
                   height: self.buttonHeight()
                 )
-                .foregroundColor(.black)
+                .foregroundColor(button.labelColor)
             }
             .background(button.buttonColor)
             .border(Color.gray.opacity(0.1), width: 0.5)

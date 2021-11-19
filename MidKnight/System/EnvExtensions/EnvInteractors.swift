@@ -5,21 +5,26 @@ extension AppEnvironment {
     _ dbServices: Container.DBServices
   ) -> Container.Interactors {
     
-    //    let targetsInteractor = RealTargetsInteractor(
-    //      appState, dbServices.targetsDBService
-    //    )
+    let todayInteractor     = RealTodayInteractor(appState)
     
-    let todayInteractor = RealTodayInteractor(appState)
+    let settingsInteractor  = RealSettingsInteractor(appState)
     
-    let settingsInteractor = RealSettingsInteractor(appState)
+    let loadingInteractor   = RealLoadingInteractor(appState)
     
-    //    let newDayInteractor = RealNewDayInteractor(appState)
+    let newDayInteractor    = RealNewDayInteractor(
+      appState, dbServices.targetsDBService
+    )
+    
+    let targetsInteractor   = RealTargetsInteractor(
+      appState, dbServices.targetsDBService
+    )
     
     return .init(
-      //      targetsInteractor,
+      targetsInteractor,
       todayInteractor,
-      settingsInteractor
-      //      newDayInteractor
+      settingsInteractor,
+      newDayInteractor,
+      loadingInteractor
     )
   }
 }

@@ -13,7 +13,7 @@ struct SettingsScreen: View {
     [.seven, .eight, .nine, .clear],
     [.four, .five, .six, .emptyEnter],
     [.one, .two, .three, .enter],
-    [.emptyZero, .zero, .emptyZero, .emptyEnter]
+    [.emptyZeroLeft, .zero, .emptyZeroRight, .emptyEnter]
   ]
   
   var body: some View {
@@ -71,8 +71,11 @@ extension SettingsScreen {
         Button {
           container.appState[\.currentPage] = .today
         } label: {
-          Text("Назад")
-            .font(.title3.bold())
+          HStack(spacing: 5) {
+            Image(systemName: "arrow.left")
+            Text("Назад")
+          }
+          .font(.title3.bold())
         }
         
         Spacer()
@@ -89,11 +92,12 @@ extension SettingsScreen {
         }
         
       } contentView: {
+        
         VStack(spacing: 0) {
-          HStack {
+          
+          HStack(spacing: 0) {
             Text(String(loadedTotalCash))
-              .bold()
-              .font(.system(size: 82))
+              .font(.system(size: 68).bold())
               .foregroundColor(.white)
           }
           
@@ -134,12 +138,13 @@ extension SettingsScreen {
               }
             } label: {
               Text(button.rawValue)
-                .font(.title3.bold())
+                .font(button.font)
+              
                 .frame(
                   width: self.buttonWidth(),
                   height: self.buttonHeight()
                 )
-                .foregroundColor(.black)
+                .foregroundColor(button.labelColor)
             }
             .background(button.buttonColor)
             .border(Color.gray.opacity(0.1), width: 0.5)

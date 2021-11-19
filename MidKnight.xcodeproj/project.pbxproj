@@ -54,6 +54,14 @@
 		BF75B3832746A03D0051FEE7 /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF75B3822746A03D0051FEE7 /* SettingsScreen.swift */; };
 		BF75B3852746A1030051FEE7 /* SettingsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF75B3842746A1030051FEE7 /* SettingsInteractor.swift */; };
 		BF75B3882746A6560051FEE7 /* PayDayPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF75B3872746A6560051FEE7 /* PayDayPickerView.swift */; };
+		BF9A66302747B4C300BED252 /* TargetsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9A662F2747B4C300BED252 /* TargetsScreen.swift */; };
+		BF9A66322747B56900BED252 /* TargetsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9A66312747B56900BED252 /* TargetsInteractor.swift */; };
+		BF9A66352747B5D900BED252 /* TargetsDBService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9A66342747B5D900BED252 /* TargetsDBService.swift */; };
+		BF9A66382747B90E00BED252 /* NewTargetScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9A66372747B90E00BED252 /* NewTargetScreen.swift */; };
+		BF9A663B2747BBFF00BED252 /* NewDayScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9A663A2747BBFF00BED252 /* NewDayScreen.swift */; };
+		BF9A663D2747BEE600BED252 /* NewDayInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9A663C2747BEE600BED252 /* NewDayInteractor.swift */; };
+		BF9A66402747E91F00BED252 /* LoadingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9A663F2747E91F00BED252 /* LoadingScreen.swift */; };
+		BF9A66422747EA8100BED252 /* LoadingInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9A66412747EA8100BED252 /* LoadingInteractor.swift */; };
 		BF9B34002746641F006A8229 /* MidKnightApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9B33FF2746641F006A8229 /* MidKnightApp.swift */; };
 		BF9B34022746641F006A8229 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9B34012746641F006A8229 /* ContentView.swift */; };
 		BF9B340427466420006A8229 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF9B340327466420006A8229 /* Assets.xcassets */; };
@@ -109,6 +117,14 @@
 		BF75B3822746A03D0051FEE7 /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
 		BF75B3842746A1030051FEE7 /* SettingsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsInteractor.swift; sourceTree = "<group>"; };
 		BF75B3872746A6560051FEE7 /* PayDayPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayDayPickerView.swift; sourceTree = "<group>"; };
+		BF9A662F2747B4C300BED252 /* TargetsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetsScreen.swift; sourceTree = "<group>"; };
+		BF9A66312747B56900BED252 /* TargetsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetsInteractor.swift; sourceTree = "<group>"; };
+		BF9A66342747B5D900BED252 /* TargetsDBService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetsDBService.swift; sourceTree = "<group>"; };
+		BF9A66372747B90E00BED252 /* NewTargetScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTargetScreen.swift; sourceTree = "<group>"; };
+		BF9A663A2747BBFF00BED252 /* NewDayScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDayScreen.swift; sourceTree = "<group>"; };
+		BF9A663C2747BEE600BED252 /* NewDayInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDayInteractor.swift; sourceTree = "<group>"; };
+		BF9A663F2747E91F00BED252 /* LoadingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingScreen.swift; sourceTree = "<group>"; };
+		BF9A66412747EA8100BED252 /* LoadingInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingInteractor.swift; sourceTree = "<group>"; };
 		BF9B33FC2746641F006A8229 /* MidKnight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MidKnight.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF9B33FF2746641F006A8229 /* MidKnightApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MidKnightApp.swift; sourceTree = "<group>"; };
 		BF9B34012746641F006A8229 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -149,9 +165,13 @@
 		BF75B31B2746663A0051FEE7 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				BF75B3812746A0310051FEE7 /* Settings */,
-				BF75B37127466A860051FEE7 /* Today */,
+				BF9A663E2747E91400BED252 /* Loading */,
 				BF9B34012746641F006A8229 /* ContentView.swift */,
+				BF9A66392747BBED00BED252 /* NewDay */,
+				BF9A66362747B8FB00BED252 /* NewTarget */,
+				BF75B3812746A0310051FEE7 /* Settings */,
+				BF9A662E2747B4B500BED252 /* Targets */,
+				BF75B37127466A860051FEE7 /* Today */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -263,8 +283,11 @@
 		BF75B37627466D760051FEE7 /* Interactors */ = {
 			isa = PBXGroup;
 			children = (
-				BF75B37727466D890051FEE7 /* TodayInteractor.swift */,
+				BF9A66412747EA8100BED252 /* LoadingInteractor.swift */,
+				BF9A663C2747BEE600BED252 /* NewDayInteractor.swift */,
 				BF75B3842746A1030051FEE7 /* SettingsInteractor.swift */,
+				BF9A66312747B56900BED252 /* TargetsInteractor.swift */,
+				BF75B37727466D890051FEE7 /* TodayInteractor.swift */,
 			);
 			path = Interactors;
 			sourceTree = "<group>";
@@ -303,6 +326,46 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		BF9A662E2747B4B500BED252 /* Targets */ = {
+			isa = PBXGroup;
+			children = (
+				BF9A662F2747B4C300BED252 /* TargetsScreen.swift */,
+			);
+			path = Targets;
+			sourceTree = "<group>";
+		};
+		BF9A66332747B5B900BED252 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				BF9A66342747B5D900BED252 /* TargetsDBService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		BF9A66362747B8FB00BED252 /* NewTarget */ = {
+			isa = PBXGroup;
+			children = (
+				BF9A66372747B90E00BED252 /* NewTargetScreen.swift */,
+			);
+			path = NewTarget;
+			sourceTree = "<group>";
+		};
+		BF9A66392747BBED00BED252 /* NewDay */ = {
+			isa = PBXGroup;
+			children = (
+				BF9A663A2747BBFF00BED252 /* NewDayScreen.swift */,
+			);
+			path = NewDay;
+			sourceTree = "<group>";
+		};
+		BF9A663E2747E91400BED252 /* Loading */ = {
+			isa = PBXGroup;
+			children = (
+				BF9A663F2747E91F00BED252 /* LoadingScreen.swift */,
+			);
+			path = Loading;
+			sourceTree = "<group>";
+		};
 		BF9B33F32746641E006A8229 = {
 			isa = PBXGroup;
 			children = (
@@ -322,6 +385,7 @@
 		BF9B33FE2746641F006A8229 /* MidKnight */ = {
 			isa = PBXGroup;
 			children = (
+				BF9A66332747B5B900BED252 /* Services */,
 				BF75B379274671890051FEE7 /* Design */,
 				BF75B32D274666D70051FEE7 /* Errors */,
 				BF75B330274666EE0051FEE7 /* Extensions */,
@@ -448,6 +512,9 @@
 				BF75B3502746670A0051FEE7 /* PublisherExtension.swift in Sources */,
 				BF75B3452746670A0051FEE7 /* JustExtension.swift in Sources */,
 				BF75B35B274668460051FEE7 /* AppEnvironment.swift in Sources */,
+				BF9A663D2747BEE600BED252 /* NewDayInteractor.swift in Sources */,
+				BF9A66422747EA8100BED252 /* LoadingInteractor.swift in Sources */,
+				BF9A66382747B90E00BED252 /* NewTargetScreen.swift in Sources */,
 				BF9B34022746641F006A8229 /* ContentView.swift in Sources */,
 				BF75B3882746A6560051FEE7 /* PayDayPickerView.swift in Sources */,
 				BF75B32C274666CE0051FEE7 /* LazyListIterator.swift in Sources */,
@@ -456,7 +523,9 @@
 				BF75B362274668BA0051FEE7 /* DBServices.swift in Sources */,
 				BF75B34C2746670A0051FEE7 /* ProcessInfoExtension.swift in Sources */,
 				BF75B370274669860051FEE7 /* Target.swift in Sources */,
+				BF9A66352747B5D900BED252 /* TargetsDBService.swift in Sources */,
 				BF75B37327466A970051FEE7 /* TodayScreen.swift in Sources */,
+				BF9A663B2747BBFF00BED252 /* NewDayScreen.swift in Sources */,
 				BF75B326274666B00051FEE7 /* WebService.swift in Sources */,
 				BF75B36C274669480051FEE7 /* TargetModelObject+CoreDataClass.swift in Sources */,
 				BF75B34B2746670A0051FEE7 /* HTTPCodesExtension.swift in Sources */,
@@ -470,10 +539,13 @@
 				BF75B3462746670A0051FEE7 /* NSSetExtension.swift in Sources */,
 				BF75B3492746670A0051FEE7 /* IntExtension.swift in Sources */,
 				BF75B36E274669650051FEE7 /* TargetModelObject+CoreDataProperties.swift in Sources */,
+				BF9A66402747E91F00BED252 /* LoadingScreen.swift in Sources */,
+				BF9A66302747B4C300BED252 /* TargetsScreen.swift in Sources */,
 				BF75B34F2746670A0051FEE7 /* OptionalExtension.swift in Sources */,
 				BF75B35E2746687E0051FEE7 /* EnvInteractors.swift in Sources */,
 				BF75B3472746670A0051FEE7 /* ManagedEntityExtension.swift in Sources */,
 				BF75B3482746670A0051FEE7 /* AnyCancellableExtension.swift in Sources */,
+				BF9A66322747B56900BED252 /* TargetsInteractor.swift in Sources */,
 				BF75B325274666B00051FEE7 /* Store.swift in Sources */,
 				BF75B328274666BB0051FEE7 /* LazyList.swift in Sources */,
 				BF75B37827466D890051FEE7 /* TodayInteractor.swift in Sources */,

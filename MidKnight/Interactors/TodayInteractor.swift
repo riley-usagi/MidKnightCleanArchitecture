@@ -67,7 +67,7 @@ struct RealTodayInteractor: TodayInteractor {
       
       spendedCash.wrappedValue = "0"
       
-    case .emptyZero, .emptyEnter:
+    case .emptyZeroLeft, .emptyZeroRight, .emptyEnter:
       break
       
       
