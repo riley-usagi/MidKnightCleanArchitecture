@@ -81,8 +81,8 @@ private extension PayDayPickerView {
     .background(
       .linearGradient(
         .init(colors: [
-          Color(#colorLiteral(red: 0.4967626929, green: 0.1718424261, blue: 0.9535631537, alpha: 1)),
-          Color(#colorLiteral(red: 0.2051824629, green: 0.2007484436, blue: 0.9180203676, alpha: 1))
+          Color(#colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)),
+          Color(#colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1))
         ]),
         startPoint: .leading, endPoint: .trailing
       ), in: RoundedRectangle(cornerRadius: 20)

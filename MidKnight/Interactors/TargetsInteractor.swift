@@ -9,6 +9,7 @@ protocol TargetsInteractor {
   func removeTarget(_ id: String)
 }
 
+
 struct RealTargetsInteractor: TargetsInteractor {
   
   let appState: Store<AppState>
@@ -23,7 +24,6 @@ struct RealTargetsInteractor: TargetsInteractor {
   }
   
   func loadTargets(_ targets: LoadableSubject<LazyList<Target>>) {
-    
     targets.wrappedValue.setIsLoading(cancelBag: cancelBag)
     
     dbService
@@ -54,6 +54,5 @@ struct RealTargetsInteractor: TargetsInteractor {
 struct StubTargetsInteractor: TargetsInteractor {
   func loadTargets(_ targets: LoadableSubject<LazyList<Target>>) {}
   func createTarget(_ name: String, _ currentAmount: Int?, _ totalAmount: Int?, completion: @escaping (Result<Void, Error>) -> Void) {}
-  
   func removeTarget(_ id: String) {}
 }

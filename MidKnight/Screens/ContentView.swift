@@ -3,110 +3,63 @@ import SwiftUI
 
 struct ContentView: View {
   
-  var screenSize: CGSize
-  
   private let container: Container
   
-  @State var offset: CGFloat = 0
-  
-  @State var newDayStatus: Bool = false
-  
-  var screens = [
-//    AnyView(TodayScreen()),
-    AnyView(TargetsScreen()),
-    AnyView(SettingsScreen())
-  ]
-  
-  init(_ container: Container, _ screenSize: CGSize) {
+  init(_ container: Container) {
     self.container = container
-    self.screenSize = screenSize
   }
+  
+  @State private var currentPage: Container.Routes = .loading
   
   var body: some View {
     
     ZStack {
       
-      BackgroundView()
-      
-      // MARK: - Content
-      
-      OffsetPageTabView(offset: $offset) {
-
-        HStack(spacing: 0) {
-
-          ForEach(0...1, id: \.self) { index in
-
-            VStack(spacing: 0) {
-              screens[index]
-                .inject(container)
-            }
-            .frame(width: screenSize.width)
-          }
-        }
-
+      GeometryReader { reader in
+        
+        Image("background")
+          .resizable()
+          .aspectRatio(1, contentMode: .fill)
+          .frame(width: reader.size.width, height: reader.size.height)
+        
       }
+      .ignoresSafeArea()
+      .overlay(.ultraThinMaterial)
       
-      
-      // MARK: - Pagination
-      
-      VStack(spacing: 0) {
-
-        HStack {
-
-          HStack(spacing: 12) {
-
-            ForEach(screens.indices, id: \.self) { index in
-              Capsule()
-                .fill(.white)
-                .frame(width: getIndex() == index ? 20 : 7, height: 7)
-
-            }
-
-          }
-          .overlay(
-
-            Capsule()
-              .fill(.white)
-              .frame(width: 20, height: 7)
-              .offset(x: getIndicatorOffset())
-
-            , alignment: .leading
-          )
-          .offset(x: 10, y: -15)
+      Group {
+        switch currentPage {
+        case .loading:
+          LoadingScreen()
+        case .newDay:
+          NewDayScreen()
+        case .today:
+          TodayScreen()
+        case .history:
+          Text("")
+        case .settings:
+          SettingsScreen()
+        case .targets:
+          TargetsScreen()
         }
-        .padding()
-        .offset(y: 60)
-
-        Spacer()
       }
+      .inject(container)
+      
     }
-    .ignoresSafeArea()
-    .sheet(isPresented: $newDayStatus, onDismiss: nil) {
-      NewDayScreen()
-        .background(BackgroundClearView())
-//        .interactiveDismissDisabled(true)
-        .inject(container)
+    .onReceive(currentPageUpdate) { newPage in
+      DispatchQueue.main.async {
+        withAnimation(.spring()) {
+          self.currentPage = newPage
+        }
+      }
     }
   }
 }
 
 
-// MARK: - Helpers
+// MARK: - Updates
 
-extension ContentView {
-  func getIndicatorOffset() -> CGFloat {
-    let progress = offset / screenSize.width
-    
-    let maxWidth: CGFloat = 12 + 7
-    
-    return progress * maxWidth
-  }
-  
-  func getIndex() -> Int {
-    let progress = round(offset / screenSize.width)
-    
-    let index = min(Int(progress), screens.count - 1)
-    
-    return index
+private extension ContentView {
+  var currentPageUpdate: AnyPublisher<Container.Routes, Never> {
+    container.appState.updates(for: \.currentPage)
   }
 }

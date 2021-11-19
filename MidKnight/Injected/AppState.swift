@@ -10,6 +10,12 @@ extension AppState {
   
   struct UserData: Equatable {
     
+    var lastVisit: Date {
+      didSet {
+        UserDefaults.standard.set(lastVisit, forKey: "lastVisit")
+      }
+    }
+    
     var totalCash: Int {
       didSet {
         UserDefaults.standard.set(totalCash, forKey: "totalCash")
@@ -30,14 +36,17 @@ extension AppState {
     
     init() {
       
+      if (UserDefaults.standard.object(forKey: "lastVisit") == nil) {
+        UserDefaults.standard.set(Date(), forKey: "lastVisit")
+      }
+      
       if (UserDefaults.standard.object(forKey: "totalCash") == nil) {
-        
         UserDefaults.standard.set(21_000, forKey: "totalCash")
       }
       
       if (UserDefaults.standard.object(forKey: "payDay") == nil) {
         
-        let fouthDaysForward = Calendar.current.date(byAdding: .day, value: 40, to: Date())!
+        let fouthDaysForward = Calendar.current.date(byAdding: .day, value: 39, to: Date())!
         
         UserDefaults.standard.set(fouthDaysForward, forKey: "payDay")
       }
@@ -47,11 +56,12 @@ extension AppState {
         UserDefaults.standard.set(525, forKey: "todayCash")
       }
       
+      self.lastVisit  = UserDefaults.standard.object(forKey: "lastVisit") as! Date
       self.totalCash  = UserDefaults.standard.object(forKey: "totalCash") as! Int
       self.payDay     = UserDefaults.standard.object(forKey: "payDay") as! Date
       self.todayCash  = UserDefaults.standard.object(forKey: "todayCash") as! Int
       
-      //clearAllUserDefaultsData()
+//            clearAllUserDefaultsData()
     }
     
     /// Зачиска UserDefaults для разработки
@@ -59,7 +69,7 @@ extension AppState {
       let domain = Bundle.main.bundleIdentifier!
       UserDefaults.standard.removePersistentDomain(forName: domain)
       UserDefaults.standard.synchronize()
-      //print(Array(UserDefaults.standard.dictionaryRepresentation().keys).count)
+      // print(Array(UserDefaults.standard.dictionaryRepresentation().keys).count)
     }
   }
 }

@@ -63,7 +63,7 @@ extension Loadable {
 extension Loadable where T: SomeOptional {
   
   /// Процесс разворачивания загружаемого объекта с опциональными данными
-  /// - Returns: <#description#>
+  /// - Returns: description
   func unwrap() -> Loadable<T.Wrapped> {
     map { try $0.unwrap() }
   }

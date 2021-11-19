@@ -1,10 +1,13 @@
 import Combine
 import CoreData
+import SwiftUI
 
 protocol TargetsDBService {
   func loadTargets() -> AnyPublisher<LazyList<Target>, Error>
+  func loadTarget(by id: String) -> AnyPublisher<Target, Error>
   func createTarget(_ name: String, _ currentAmount: Int, _ totalAmount: Int) -> AnyPublisher<Void, Error>
   func removeTarget(_ id: String) -> AnyPublisher<Void, Error>
+  func updateTarget(_ id: String, _ addedValue: Int) -> AnyPublisher<Void, Error>
 }
 
 struct RealTargetsDBService: TargetsDBService {
@@ -22,6 +25,18 @@ struct RealTargetsDBService: TargetsDBService {
       .fetch(request) { fetchedTargets in
         Target(managedObject: fetchedTargets)
       }
+      .eraseToAnyPublisher()
+  }
+  
+  func loadTarget(by id: String) -> AnyPublisher<Target, Error> {
+    
+    let request = TargetModelObject.oneTarget(by: id)
+    
+    return persistentStore
+      .fetch(request) { fetchedTarget in
+        Target(managedObject: fetchedTarget)
+      }
+      .map { $0.first! }
       .eraseToAnyPublisher()
   }
   
@@ -46,5 +61,25 @@ struct RealTargetsDBService: TargetsDBService {
       .delete(request)
       .eraseToAnyPublisher()
   }
+  
+  func updateTarget(_ id: String, _ addedValue: Int) -> AnyPublisher<Void, Error> {
+    
+    let request = TargetModelObject.oneTarget(by: id)
+    
+    return persistentStore
+      .fetch(request) { fetchedTarget in
+        Target(managedObject: fetchedTarget)
+      }
+      .map { $0.first! }
+      .flatMap { target -> AnyPublisher<Void, Error> in
+        return persistentStore
+          .update {context in
+            let updatedTarget = Target(name: target.name, currentAmount: target.currentAmount, totalAmount: target.totalAmount)
+            
+            updatedTarget.store(context)
+          }
+      }
+      .eraseToAnyPublisher()
+    
+  }
 }
-

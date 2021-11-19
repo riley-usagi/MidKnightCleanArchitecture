@@ -9,10 +9,17 @@ struct SettingsScreen: View {
   
   @State var settingsScreenPayDay: Date = Date()
   
+  let buttons: [[NumPadButton]] = [
+    [.seven, .eight, .nine, .clear],
+    [.four, .five, .six, .emptyEnter],
+    [.one, .two, .three, .enter],
+    [.emptyZeroLeft, .zero, .emptyZeroRight, .emptyEnter]
+  ]
+  
   var body: some View {
     content
-      .onReceive(payDayUpdate) { newValue in
-        settingsScreenPayDay = newValue
+      .onReceive(payDayUpdate) { newPayday in
+        settingsScreenPayDay = newPayday
       }
   }
   
@@ -24,7 +31,7 @@ struct SettingsScreen: View {
 private extension SettingsScreen {
   var content: some View {
     switch totalCash {
-
+      
     case .notRequested:
       return AnyView(notRequestedView)
     case .isLoading:
@@ -37,6 +44,9 @@ private extension SettingsScreen {
   }
 }
 
+
+// MARK: - Not requested
+
 private extension SettingsScreen {
   var notRequestedView: some View {
     Text("")
@@ -46,8 +56,151 @@ private extension SettingsScreen {
   }
 }
 
+
+// MARK: - Loaded
+
+
+extension SettingsScreen {
+  
+  func loadedView(_ loadedTotalCash: Int) -> some View {
+    
+    VStack(spacing: 0) {
+      
+      HStack(spacing: 0) {
+        
+        Button {
+          container.appState[\.currentPage] = .today
+        } label: {
+          HStack(spacing: 5) {
+            Image(systemName: "arrow.left")
+            Text("Назад")
+          }
+          .font(.title3.bold())
+        }
+        
+        Spacer()
+      }
+      .foregroundColor(.white)
+      .padding()
+      .padding(.horizontal)
+      
+      CustomStackView {
+        Label {
+          Text("Всего:")
+        } icon: {
+          Image(systemName: "rublesign.circle")
+        }
+        
+      } contentView: {
+        
+        VStack(spacing: 0) {
+          
+          HStack(spacing: 0) {
+            Text(String(loadedTotalCash))
+              .font(.system(size: 68).bold())
+              .foregroundColor(.white)
+          }
+          
+          Text("\(loadedTotalCash / Date.daysBetweenPlusOne(Date(), settingsScreenPayDay)) в день")
+            .font(.callout.bold())
+            .foregroundColor(.white)
+        }
+      }
+      .padding(.horizontal)
+      
+      CustomStackView {
+        Label {
+          Text("Дата пополнения")
+        } icon: {
+          Image(systemName: "calendar")
+        }
+        .foregroundColor(.white)
+      } contentView: {
+        PayDayPickerView(payDay: .notRequested, totalCash: loadedTotalCash)
+      }
+      .padding(.horizontal)
+      
+      Spacer()
+      
+      
+      // MARK: - NumPad
+      
+      ForEach(buttons, id: \.self) { row in
+        
+        HStack(spacing: 0) {
+          ForEach(row, id: \.self) { button in
+            
+            Button {
+              DispatchQueue.main.async {
+                withAnimation(.spring()) {
+                  container.interactors.settingsInteractor.numPadTapped(button, $totalCash, loadedTotalCash)
+                }
+              }
+            } label: {
+              Text(button.rawValue)
+                .font(button.font)
+              
+                .frame(
+                  width: self.buttonWidth(),
+                  height: self.buttonHeight()
+                )
+                .foregroundColor(button.labelColor)
+            }
+            .background(button.buttonColor)
+            .border(Color.gray.opacity(0.1), width: 0.5)
+          }
+        }
+        .ignoresSafeArea()
+      }
+      
+      // MARK: - About
+      
+      //      CustomStackView {
+      //        Label {
+      //          Text("О приложении")
+      //        } icon: {
+      //          Image(systemName: "questionmark.circle")
+      //        }
+      //        .foregroundColor(.white)
+      //      } contentView: {
+      //        VStack(spacing: 0) {
+      //          HStack {
+      //            Text(
+      //              "Приложение помогает распределить деньги на заданный период времени, чтобы убрать лишние траты и помочь накопить на мечту!"
+      //            )
+      //              .font(.title2.bold())
+      //              .foregroundColor(.white)
+      //              .multilineTextAlignment(.center)
+      //          }
+      //
+      //        }
+      //        .padding()
+      //      }
+      //      .padding(.horizontal)
+      
+    }
+    
+  }
+}
+
+
+// MARK: - Updates
+
 extension SettingsScreen {
   var payDayUpdate: AnyPublisher<Date, Never> {
     container.appState.updates(for: \.userData.payDay)
+  }
+}
+
+
+// MARK: - Helpers
+
+private extension SettingsScreen {
+  func buttonWidth() -> CGFloat {
+    return (UIScreen.main.bounds.width - (5)) / 4
+  }
+  
+  func buttonHeight() -> CGFloat {
+    return (UIScreen.main.bounds.width - (5 * 12)) / 4
   }
 }
