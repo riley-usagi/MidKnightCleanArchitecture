@@ -97,7 +97,7 @@ extension SettingsScreen {
           
           HStack(spacing: 0) {
             Text(String(loadedTotalCash))
-              .font(.system(size: 68).bold())
+              .font(.system(size: 30).bold())
               .foregroundColor(.white)
           }
           
@@ -124,6 +124,8 @@ extension SettingsScreen {
       
       
       // MARK: - NumPad
+      
+      VStack(spacing: 0) {
       
       ForEach(buttons, id: \.self) { row in
         
@@ -152,32 +154,8 @@ extension SettingsScreen {
         }
         .ignoresSafeArea()
       }
-      
-      // MARK: - About
-      
-      //      CustomStackView {
-      //        Label {
-      //          Text("О приложении")
-      //        } icon: {
-      //          Image(systemName: "questionmark.circle")
-      //        }
-      //        .foregroundColor(.white)
-      //      } contentView: {
-      //        VStack(spacing: 0) {
-      //          HStack {
-      //            Text(
-      //              "Приложение помогает распределить деньги на заданный период времени, чтобы убрать лишние траты и помочь накопить на мечту!"
-      //            )
-      //              .font(.title2.bold())
-      //              .foregroundColor(.white)
-      //              .multilineTextAlignment(.center)
-      //          }
-      //
-      //        }
-      //        .padding()
-      //      }
-      //      .padding(.horizontal)
-      
+      }
+      .frame(maxHeight: UIScreen.main.bounds.height / 2.5)
     }
     
   }
@@ -201,6 +179,6 @@ private extension SettingsScreen {
   }
   
   func buttonHeight() -> CGFloat {
-    return (UIScreen.main.bounds.width - (5 * 12)) / 4
+    return ((UIScreen.main.bounds.height / 2.5) / 4)
   }
 }

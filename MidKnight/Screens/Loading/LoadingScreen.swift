@@ -16,6 +16,7 @@ struct LoadingScreen: View {
           firstRunSheetStatus.toggle()
         }
       }
+    
       .sheet(isPresented: $firstRunSheetStatus, onDismiss: nil) {
         
         // Содержимое вступительного экрана
@@ -89,8 +90,9 @@ struct LoadingScreen: View {
             )
             .foregroundColor(.white)
           }
-          .padding(.horizontal)
+          .padding()
         }
+        .ignoresSafeArea()
         .interactiveDismissDisabled(true)
       }
   }

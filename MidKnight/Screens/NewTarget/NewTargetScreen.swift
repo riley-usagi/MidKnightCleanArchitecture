@@ -56,7 +56,7 @@ struct NewTargetScreen: View {
           }
           
         } contentView: {
-          TextField("Уже имею", value: $currentAmount, formatter: NumberFormatter(), prompt: nil)
+          TextField("", value: $currentAmount, formatter: NumberFormatter(), prompt: nil)
             .placeholder(when: currentAmount == nil, placeholder: {
               Text("Начальная сумма")
                 .foregroundColor(.white)

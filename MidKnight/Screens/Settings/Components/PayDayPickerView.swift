@@ -76,7 +76,7 @@ private extension PayDayPickerView {
       }
     }
     .font(.title3.bold())
-    .padding(.vertical, 22)
+    .padding(.vertical, 12)
     .frame(maxWidth: .infinity)
     .background(
       .linearGradient(

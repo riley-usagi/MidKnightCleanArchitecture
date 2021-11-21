@@ -111,7 +111,7 @@ private extension TodayScreen {
       } contentView: {
         HStack(spacing: 0) {
           Text(cashLabel + " ₽")
-            .font(.system(size: 82).bold())
+            .font(.system(size: 54).bold())
           
           Spacer()
         }
@@ -132,7 +132,7 @@ private extension TodayScreen {
           Spacer()
           
           Text(spendedCash + " ₽")
-            .font(.system(size: 48).bold())
+            .font(.system(size: 34).bold())
         }
       }
       .padding(.horizontal)
@@ -144,7 +144,9 @@ private extension TodayScreen {
       
       // MARK: - NumPad
       
-      ForEach(buttons, id: \.self) { row in
+      VStack(spacing: 0) {
+      
+        ForEach(buttons, id: \.self) { row in
         
         HStack(spacing: 0) {
           ForEach(row, id: \.self) { button in
@@ -166,6 +168,8 @@ private extension TodayScreen {
         }
         .ignoresSafeArea()
       }
+      }
+      .frame(maxHeight: UIScreen.main.bounds.height / 2.5)
     }
   }
 }
@@ -179,6 +183,6 @@ private extension TodayScreen {
   }
   
   func buttonHeight() -> CGFloat {
-    return (UIScreen.main.bounds.width - (5 * 12)) / 4
+    return ((UIScreen.main.bounds.height / 2.5) / 4)
   }
 }

@@ -62,7 +62,6 @@ extension TargetsScreen {
       if targets.count == 0 {
         
         VStack(spacing: 0) {
-          
           HStack(spacing: 0) {
             
             Spacer()
@@ -70,13 +69,14 @@ extension TargetsScreen {
             Button {
               container.appState[\.currentPage] = .today
             } label: {
-              Text("Назад")
-                .font(.title3.bold())
+              HStack(spacing: 5) {
+                Text("Назад")
+                Image(systemName: "arrow.right")
+              }
+              .font(.title3.bold())
             }
           }
           .foregroundColor(.white)
-          .padding()
-          .padding(.horizontal)
           
           Spacer()
           
@@ -107,8 +107,7 @@ extension TargetsScreen {
             }
           }
           .foregroundColor(.white)
-          .padding()
-          .padding(.horizontal)
+          .padding(.bottom)
           
           ScrollView(.vertical, showsIndicators: false) {
             
@@ -151,7 +150,7 @@ extension TargetsScreen {
             }
           }
           .padding(.bottom, 100)
-          .padding(.horizontal)
+//          .padding(.horizontal)
           
         }
       }
@@ -180,7 +179,8 @@ extension TargetsScreen {
         .foregroundColor(.white)
         
       }
-      .padding()
     }
+    .ignoresSafeArea()
+    .padding()
   }
 }
