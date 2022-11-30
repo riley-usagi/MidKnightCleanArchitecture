@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF349C7629375B2900BE0164 /* LoadingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF349C7529375B2900BE0164 /* LoadingScreen.swift */; };
+		BF349C7929375B9B00BE0164 /* NavigationStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF349C7829375B9B00BE0164 /* NavigationStore.swift */; };
 		BF9B34002746641F006A8229 /* MidKnightApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9B33FF2746641F006A8229 /* MidKnightApp.swift */; };
 		BF9B34022746641F006A8229 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9B34012746641F006A8229 /* ContentView.swift */; };
 		BF9B340427466420006A8229 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF9B340327466420006A8229 /* Assets.xcassets */; };
@@ -14,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BF349C7529375B2900BE0164 /* LoadingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingScreen.swift; sourceTree = "<group>"; };
+		BF349C7829375B9B00BE0164 /* NavigationStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationStore.swift; sourceTree = "<group>"; };
 		BF9B33FC2746641F006A8229 /* MidKnight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MidKnight.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF9B33FF2746641F006A8229 /* MidKnightApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MidKnightApp.swift; sourceTree = "<group>"; };
 		BF9B34012746641F006A8229 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -32,6 +36,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BF349C7229375AC700BE0164 /* Loading */ = {
+			isa = PBXGroup;
+			children = (
+				BF349C7529375B2900BE0164 /* LoadingScreen.swift */,
+			);
+			path = Loading;
+			sourceTree = "<group>";
+		};
+		BF349C7429375AE100BE0164 /* Content */ = {
+			isa = PBXGroup;
+			children = (
+				BF9B34012746641F006A8229 /* ContentView.swift */,
+			);
+			path = Content;
+			sourceTree = "<group>";
+		};
+		BF349C7729375B4900BE0164 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				BF349C7829375B9B00BE0164 /* NavigationStore.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		BF75B317274665AD0051FEE7 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -52,7 +80,8 @@
 		BF75B31B2746663A0051FEE7 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				BF9B34012746641F006A8229 /* ContentView.swift */,
+				BF349C7429375AE100BE0164 /* Content */,
+				BF349C7229375AC700BE0164 /* Loading */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -79,6 +108,7 @@
 				BF75B317274665AD0051FEE7 /* Resources */,
 				BF75B31B2746663A0051FEE7 /* Screens */,
 				BF75B31A274666320051FEE7 /* System */,
+				BF349C7729375B4900BE0164 /* Utilities */,
 			);
 			path = MidKnight;
 			sourceTree = "<group>";
@@ -162,7 +192,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF9B34022746641F006A8229 /* ContentView.swift in Sources */,
+				BF349C7929375B9B00BE0164 /* NavigationStore.swift in Sources */,
 				BF9B34002746641F006A8229 /* MidKnightApp.swift in Sources */,
+				BF349C7629375B2900BE0164 /* LoadingScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
