@@ -2,16 +2,17 @@ import Combine
 import SwiftUI
 
 var update: PassthroughSubject<Update, Never> = .init()
+var route: CurrentValueSubject<Route, Never> = .init(.loading)
 
 @main struct MidKnightApp: App {
-    
-  @ObservedObject var router = Router.shared
+  
+  @State var path: [Route] = [.loading]
   
   var body: some Scene {
     
     WindowGroup {
       
-      NavigationStack(path: $router.path) {
+      NavigationStack(path: $path) {
         
         ContentView()
         
@@ -22,16 +23,27 @@ var update: PassthroughSubject<Update, Never> = .init()
             case .loading:
               LoadingScreen()
               
-            case .main:
-              Text("Main Screen")
+            case .newDay:
+              Text("New Day")
+              
+            default:
+              EmptyView()
             }
           }
       }
       
-      .onReceive(update) { newValue in
-        if case .route(.main) = newValue {
-          router.backToRoot()
-          router.presentMain()
+      .onReceive(route) { newRoute in
+        switch newRoute {
+          
+        case .loading:
+          path.removeAll()
+          
+        case .newDay:
+          path.removeAll()
+          path.append(.newDay)
+          
+        case .home:
+          path.removeAll()
         }
       }
     }
@@ -40,42 +52,10 @@ var update: PassthroughSubject<Update, Never> = .init()
 
 enum Update {
   case stub
-  case example
-  case route(Route)
 }
 
 enum Route: Hashable {
   case loading
-  case main
-}
-
-
-final class Router: ObservableObject {
-  static let shared = Router()
-  
-  @Published var path: [Route] = [.loading]
-  
-  //  func showProduct(product: Product) {
-  //    path.append(.product(product))
-  //  }
-  
-  func presentMain() {
-    path.append(.main)
-  }
-  
-  func showAddress() {
-    //    path.append(.address)
-  }
-  
-  func showOrderConfirmation() {
-    //    path.append(.orderConfirmation)
-  }
-  
-  func backToRoot() {
-    path.removeAll()
-  }
-  
-  func back() {
-    path.removeLast()
-  }
+  case newDay
+  case home
 }
